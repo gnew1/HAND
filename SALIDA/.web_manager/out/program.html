@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HAND v0.1 MVP - HTML View</title>
+  <style>
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 24px; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    pre { background: #f7f7f7; padding: 12px; border-radius: 10px; overflow:auto; }
+    .muted { color: #666; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>HAND → HTML (MVP)</h1>
+  <p class="muted">Esta salida es una vista explicable del programa HAND. En v0.1 no ejecuta toda la lógica; sirve como “interfaz visible” y documentación.</p>
+
+  <div class="card">
+    <h2>Código HAND</h2>
+    <pre>show "hola"</pre>
+  </div>
+
+  <div class="card">
+    <h2>Notas</h2>
+    <ul>
+      <li>El target HTML en este MVP es una representación documental/UX (no un runtime completo).</li>
+      <li>Para ejecutar la lógica, compila a <b>Python</b> y ejecútalo.</li>
+      <li>En versiones posteriores: UI declarativa real + bindings.</li>
+    </ul>
+  </div>
+</body>
+</html>

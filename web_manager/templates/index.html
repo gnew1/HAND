@@ -85,35 +85,28 @@
                   </div>
                 </div>
 
-                <div class="mb-2">
-                  <input type="text" class="form-control form-control-sm" id="emoji-search" placeholder="Buscar emoji (ej: idea, check, fuego)">
+                <div class="row g-2 mb-2">
+                  <div class="col-md-7">
+                    <input type="text" class="form-control form-control-sm" id="emoji-search" placeholder="Buscar emoji, descripción o tipo de función">
+                  </div>
+                  <div class="col-md-5">
+                    <select id="emoji-category" class="form-select form-select-sm">
+                      <option value="">Todas las categorías</option>
+                    </select>
+                  </div>
                 </div>
+                <div class="small text-secondary mb-2" id="emoji-count"></div>
+                <div class="small text-secondary mb-2">La búsqueda incluye: tipo de función HAND, descripción del emoji y capa activa.</div>
                 <div id="emoji-palette" class="emoji-palette">
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="😀" data-tags="cara feliz smile">😀</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="😎" data-tags="cool programador">😎</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🤖" data-tags="bot codigo ia">🤖</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🧠" data-tags="idea mente logica">🧠</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🔥" data-tags="fuego pro progreso">🔥</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="✅" data-tags="check ok hecho">✅</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="❌" data-tags="error fail">❌</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="⚠️" data-tags="alerta warning">⚠️</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="💡" data-tags="idea tip">💡</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="📌" data-tags="pin nota">📌</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🧩" data-tags="pieza modulo">🧩</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🚀" data-tags="launch run deploy">🚀</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="📦" data-tags="paquete build">📦</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🛠️" data-tags="tools herramientas">🛠️</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="⚙️" data-tags="configuracion">⚙️</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🧪" data-tags="test pruebas">🧪</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="📊" data-tags="datos reporte">📊</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="📚" data-tags="docs aprender">📚</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="✍️" data-tags="escribir editor">✍️</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🔍" data-tags="buscar debug">🔍</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🐍" data-tags="python">🐍</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🌐" data-tags="web html">🌐</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🗃️" data-tags="archivos">🗃️</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🎯" data-tags="objetivo meta">🎯</button>
-                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🙌" data-tags="bien hecho">🙌</button>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mt-2 gap-2">
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="emoji-prev-page">
+                    <i class="bi bi-chevron-left"></i>Anterior
+                  </button>
+                  <div class="small text-secondary text-center" id="emoji-page-info">Página 1 de 1</div>
+                  <button type="button" class="btn btn-outline-secondary btn-sm" id="emoji-next-page">
+                    Siguiente<i class="bi bi-chevron-right"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -136,7 +129,7 @@
           </div>
           <div class="col-md-4">
             <label class="form-label">Target</label>
-            <select name="target" class="form-select">
+            <select name="target" class="form-select" id="compile-target">
               <option value="python">python</option>
               <option value="html">html</option>
               <option value="sql">sql</option>
@@ -173,6 +166,17 @@
           <input type="hidden" name="default_translate_in" value="{{ default_translate_in }}">
           <input type="hidden" name="default_translate_out" value="{{ default_translate_out }}">
         </form>
+
+        <div class="emoji-program-guide mt-3" id="emoji-program-guide">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+            <h3 class="h6 mb-0"><i class="bi bi-info-circle-fill me-1"></i>Guía de emojis para el programa</h3>
+            <span class="badge text-bg-primary" id="emoji-guide-layer">Capa activa: python</span>
+          </div>
+          <div class="small mb-2" id="emoji-guide-main">Selecciona un emoji para ver su función en HAND y un ejemplo inmediato para la capa activa.</div>
+          <div class="small mb-2" id="emoji-guide-selected">Emoji seleccionado: ninguno.</div>
+          <div class="small mb-2" id="emoji-guide-related">Sugerencias: sin selección todavía.</div>
+          <div class="small" id="emoji-guide-map">Funciones disponibles: validación, flujo, salida UI, datos/cálculo, archivos, configuración/build, seguridad y comunicación.</div>
+        </div>
       </div>
     </section>
 
@@ -246,7 +250,14 @@
                 <h3 class="h6">Subir documentos para integrar</h3>
                 <form method="post" action="/workspace/upload" enctype="multipart/form-data" id="workspace-upload-form" class="row g-2">
                   <div class="col-12">
-                    <input type="file" name="documents" class="form-control" multiple>
+                    <input type="file" name="documents" id="upload-documents-input" class="form-control" multiple>
+                  </div>
+                  <div class="col-12">
+                    <div id="upload-dropzone" class="dropzone-upload" role="button" tabindex="0" aria-label="Zona para arrastrar y soltar archivos">
+                      <i class="bi bi-cloud-arrow-up me-1"></i>
+                      Arrastra y suelta archivos aquí, o haz clic para seleccionarlos
+                    </div>
+                    <div class="small text-secondary mt-1" id="upload-dropzone-status">Sin archivos seleccionados.</div>
                   </div>
                   <div class="col-12 d-flex gap-2">
                     <button
@@ -405,7 +416,7 @@
                     <input name="hand_rel" class="form-control" value="{{ selected_file_rel }}" placeholder="archivo .hand en workspace">
                   </div>
                   <div class="col-md-3">
-                    <select name="target" class="form-select">
+                    <select name="target" class="form-select" id="workspace-target">
                       <option value="python">python</option>
                       <option value="html">html</option>
                       <option value="sql">sql</option>
@@ -786,25 +797,458 @@
         });
       }
 
-      document.querySelectorAll('.js-insert-emoji').forEach((btn) => {
-        btn.addEventListener('click', function () {
-          const emoji = this.dataset.emoji || '';
-          const editor = activeEditor || document.querySelector('textarea.editor');
-          insertAtCursor(editor, emoji);
+      let emojiCatalog = [];
+      let emojiGroups = [];
+      let activeLayer = 'python';
+      let selectedEmoji = null;
+      const emojiState = {
+        query: '',
+        category: '',
+        page: 1,
+        pageSize: 120,
+      };
+
+      function inferEmojiFunction(item) {
+        const text = `${item.name || ''} ${item.subgroup || ''} ${item.group || ''}`.toLowerCase();
+        const has = (pattern) => pattern.test(text);
+
+        if (has(/check|cross|warning|prohibited|stop|mark|error|no entry/)) {
+          return {
+            type: 'Validación y estado',
+            brief: 'Marca si algo está correcto, falló o necesita atención.',
+            examples: {
+              python: 'verify total >= 0\nshow "✅ validado"',
+              html: 'show "✅ bloque listo para HTML"',
+              sql: 'verify id != null\nshow "⚠️ revisar filas nulas"',
+              rust: 'verify ok\nshow "🛑 revisar rama crítica"',
+              wasm: 'show "✅ listo para exportar wasm"',
+            },
+          };
+        }
+
+        if (has(/arrow|repeat|clockwise|left-right|up-down|fast-forward|rewind/)) {
+          return {
+            type: 'Control de flujo',
+            brief: 'Representa iteraciones, ramificaciones o avance del flujo.',
+            examples: {
+              python: 'while pasos < 3:\n    show "🔁 paso"',
+              html: 'if mostrar:\n    show "➡️ sección activa"',
+              sql: 'if filtro_ok:\n    show "↔️ join habilitado"',
+              rust: 'while flag:\n    show "⬆️ iteración"',
+              wasm: 'if cargar:\n    show "⏳ inicializando"',
+            },
+          };
+        }
+
+        if (has(/folder|file|package|document|paper|card index|archive|inbox|outbox/)) {
+          return {
+            type: 'Gestión de archivos',
+            brief: 'Indica lectura, escritura, paquetes o movimiento de documentos.',
+            examples: {
+              python: 'show "📁 carpeta de salida preparada"',
+              html: 'show "📄 plantilla lista"',
+              sql: 'show "📦 lote SQL generado"',
+              rust: 'show "🗂️ módulos compilados"',
+              wasm: 'show "📤 artefacto wasm exportado"',
+            },
+          };
+        }
+
+        if (has(/gear|wrench|hammer|toolbox|pick|nut and bolt|bricks?/)) {
+          return {
+            type: 'Configuración y build',
+            brief: 'Útil para settings, compilación y ajustes técnicos.',
+            examples: {
+              python: 'show "⚙️ config python activa"',
+              html: 'show "🛠️ build html en curso"',
+              sql: 'show "🔧 tuning de consulta"',
+              rust: 'show "🔨 compilación rust"',
+              wasm: 'show "🧱 bundle wasm"',
+            },
+          };
+        }
+
+        if (has(/chart|abacus|numbers|math|bar chart|upwards|downwards/)) {
+          return {
+            type: 'Datos y cálculo',
+            brief: 'Se usa para métricas, operaciones o resultados numéricos.',
+            examples: {
+              python: 'valor = 2 + 3\nshow "📊 resultado" + valor',
+              html: 'show "📈 tendencia visible"',
+              sql: 'show "🧮 agregación aplicada"',
+              rust: 'show "📉 revisar rendimiento"',
+              wasm: 'show "📊 métrica exportada"',
+            },
+          };
+        }
+
+        if (has(/lock|key|shield|security|privacy/)) {
+          return {
+            type: 'Seguridad y control',
+            brief: 'Comunica validaciones, permisos y protección.',
+            examples: {
+              python: 'verify token != null\nshow "🔒 acceso validado"',
+              html: 'show "🛡️ vista protegida"',
+              sql: 'show "🔐 credenciales requeridas"',
+              rust: 'show "🔒 memoria controlada"',
+              wasm: 'show "🛡️ sandbox activo"',
+            },
+          };
+        }
+
+        if (has(/speech|megaphone|bell|loudspeaker|mailbox|satellite|antenna/)) {
+          return {
+            type: 'Comunicación y eventos',
+            brief: 'Describe mensajes, notificaciones y señales del sistema.',
+            examples: {
+              python: 'show "💬 evento recibido"',
+              html: 'show "📣 notificación visual"',
+              sql: 'show "📬 resultado entregado"',
+              rust: 'show "🔔 evento emitido"',
+              wasm: 'show "📡 señal wasm"',
+            },
+          };
+        }
+
+        return {
+          type: 'Salida y contexto de interfaz',
+          brief: 'Aporta contexto visual al mensaje mostrado en el programa.',
+          examples: {
+            python: 'show "✨ salida clara para usuario"',
+            html: 'show "🌐 contenido para frontend"',
+            sql: 'show "📝 instrucción preparada"',
+            rust: 'show "🦀 módulo activo"',
+            wasm: 'show "🚀 módulo wasm listo"',
+          },
+        };
+      }
+
+      function enrichEmojiItem(item) {
+        const fn = inferEmojiFunction(item);
+        const layerExample = fn.examples[activeLayer] || fn.examples.python;
+        return {
+          ...item,
+          functionType: fn.type,
+          functionBrief: fn.brief,
+          layerExample,
+          tooltipText: `Función: ${fn.type} · Capa activa: ${activeLayer} · Ejemplo HAND: ${layerExample}`,
+        };
+      }
+
+      function _emojiText(item) {
+        return `${item.emoji || ''} ${item.name || ''} ${item.tags || ''} ${item.group || ''} ${item.subgroup || ''} ${item.help || ''} ${item.functionType || ''} ${item.functionBrief || ''}`.toLowerCase();
+      }
+
+      function _emojiFilter(item) {
+        const matchesQuery = !emojiState.query || _emojiText(item).includes(emojiState.query);
+        const matchesCategory = !emojiState.category || item.group === emojiState.category;
+        return matchesQuery && matchesCategory;
+      }
+
+      function renderEmojiCategories() {
+        const categorySelect = document.getElementById('emoji-category');
+        if (!categorySelect) {
+          return;
+        }
+        categorySelect.innerHTML = '<option value="">Todas las categorías</option>';
+        emojiGroups.forEach((group) => {
+          const option = document.createElement('option');
+          option.value = group;
+          option.textContent = group;
+          categorySelect.appendChild(option);
         });
+        categorySelect.value = emojiState.category;
+      }
+
+      function renderEmojiPalette() {
+        const palette = document.getElementById('emoji-palette');
+        const count = document.getElementById('emoji-count');
+        const pageInfo = document.getElementById('emoji-page-info');
+        const prevBtn = document.getElementById('emoji-prev-page');
+        const nextBtn = document.getElementById('emoji-next-page');
+
+        if (!palette) {
+          return;
+        }
+
+        const semanticCatalog = emojiCatalog.map(enrichEmojiItem);
+        const filtered = semanticCatalog.filter(_emojiFilter);
+        const totalPages = Math.max(1, Math.ceil(filtered.length / emojiState.pageSize));
+        emojiState.page = Math.min(Math.max(1, emojiState.page), totalPages);
+        const start = (emojiState.page - 1) * emojiState.pageSize;
+        const pageItems = filtered.slice(start, start + emojiState.pageSize);
+
+        palette.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((el) => {
+          const tip = bootstrap.Tooltip.getInstance(el);
+          if (tip) {
+            tip.dispose();
+          }
+        });
+
+        palette.innerHTML = '';
+        pageItems.forEach((item) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'btn btn-light btn-sm js-insert-emoji';
+          btn.dataset.emoji = item.emoji || '';
+          btn.dataset.functionType = item.functionType || '';
+          btn.dataset.functionBrief = item.functionBrief || '';
+          btn.dataset.layerExample = item.layerExample || '';
+          btn.dataset.imageDesc = item.name || '';
+          btn.dataset.group = item.group || '';
+          btn.setAttribute('data-bs-toggle', 'tooltip');
+          btn.setAttribute('data-bs-placement', 'top');
+          btn.setAttribute('title', item.tooltipText || 'Función HAND no disponible');
+          btn.textContent = item.emoji || '❓';
+          palette.appendChild(btn);
+        });
+
+        palette.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((el) => {
+          new bootstrap.Tooltip(el, { container: 'body', trigger: 'hover focus' });
+        });
+
+        if (count) {
+          count.textContent = `Mostrando ${pageItems.length} de ${filtered.length} resultados (${emojiCatalog.length} emojis Unicode estándar).`;
+        }
+        if (pageInfo) {
+          pageInfo.textContent = `Página ${emojiState.page} de ${totalPages}`;
+        }
+        if (prevBtn) {
+          prevBtn.disabled = emojiState.page <= 1;
+        }
+        if (nextBtn) {
+          nextBtn.disabled = emojiState.page >= totalPages;
+        }
+      }
+
+      async function loadEmojiDataset() {
+        const count = document.getElementById('emoji-count');
+        try {
+          if (count) {
+            count.textContent = 'Cargando catálogo Unicode…';
+          }
+          const response = await fetch("{{ url_for('static', filename='data/emoji_dataset.json') }}", { cache: 'no-store' });
+          if (!response.ok) {
+            throw new Error(`No se pudo cargar dataset (HTTP ${response.status})`);
+          }
+          const payload = await response.json();
+          emojiCatalog = Array.isArray(payload.items) ? payload.items : [];
+          emojiGroups = Array.isArray(payload.groups)
+            ? payload.groups
+            : Array.from(new Set(emojiCatalog.map((item) => item.group).filter(Boolean))).sort();
+          renderEmojiCategories();
+          renderEmojiPalette();
+          renderEmojiGuide();
+        } catch (err) {
+          emojiCatalog = [];
+          emojiGroups = [];
+          renderEmojiCategories();
+          renderEmojiPalette();
+          if (count) {
+            count.textContent = `Error cargando dataset Unicode: ${err.message}`;
+          }
+        }
+      }
+
+      function renderEmojiGuide() {
+        const layerBadge = document.getElementById('emoji-guide-layer');
+        const guideMain = document.getElementById('emoji-guide-main');
+        const guideSelected = document.getElementById('emoji-guide-selected');
+        const guideRelated = document.getElementById('emoji-guide-related');
+        const guideMap = document.getElementById('emoji-guide-map');
+
+        if (layerBadge) {
+          layerBadge.textContent = `Capa activa: ${activeLayer}`;
+        }
+
+        const catalog = emojiCatalog.map(enrichEmojiItem);
+        const byType = new Map();
+        catalog.forEach((item) => {
+          const arr = byType.get(item.functionType) || [];
+          arr.push(item);
+          byType.set(item.functionType, arr);
+        });
+
+        if (guideMap) {
+          const mapText = Array.from(byType.entries())
+            .slice(0, 8)
+            .map(([type, items]) => {
+              const sample = items.slice(0, 2).map((entry) => entry.emoji).join(' ');
+              return `${type}: ${sample}`;
+            })
+            .join(' · ');
+          guideMap.textContent = `Funciones y otros emojis sugeridos: ${mapText || 'sin datos'}.`;
+        }
+
+        if (!selectedEmoji) {
+          if (guideMain) {
+            guideMain.textContent = 'Selecciona un emoji para ver su tipo de función HAND y un ejemplo según la capa activa.';
+          }
+          if (guideSelected) {
+            guideSelected.textContent = 'Emoji seleccionado: ninguno.';
+          }
+          if (guideRelated) {
+            guideRelated.textContent = 'Sugerencias: selecciona un emoji para ver otros de la misma función.';
+          }
+          return;
+        }
+
+        const enriched = enrichEmojiItem(selectedEmoji);
+        const related = (byType.get(enriched.functionType) || [])
+          .filter((item) => item.emoji !== enriched.emoji)
+          .slice(0, 10)
+          .map((item) => `${item.emoji} (${item.name || 'sin desc'})`)
+          .join(' · ');
+
+        if (guideMain) {
+          guideMain.textContent = `Función principal: ${enriched.functionType}. ${enriched.functionBrief} Ejemplo (${activeLayer}): ${enriched.layerExample}`;
+        }
+        if (guideSelected) {
+          guideSelected.textContent = `Emoji seleccionado: ${enriched.emoji} · Descripción: ${enriched.name || 'sin descripción'} · Categoría: ${enriched.group || 'N/D'}.`;
+        }
+        if (guideRelated) {
+          guideRelated.textContent = `Otros emojis de función similar: ${related || 'no hay relacionados en esta categoría.'}`;
+        }
+      }
+
+      document.addEventListener('click', function (event) {
+        const btn = event.target.closest('.js-insert-emoji');
+        if (!btn) {
+          return;
+        }
+        const emoji = btn.dataset.emoji || '';
+        const editor = activeEditor || document.querySelector('textarea.editor');
+        insertAtCursor(editor, emoji);
+
+        selectedEmoji = {
+          emoji,
+          name: btn.dataset.imageDesc || '',
+          group: btn.dataset.group || '',
+          functionType: btn.dataset.functionType || '',
+          functionBrief: btn.dataset.functionBrief || '',
+        };
+        renderEmojiGuide();
       });
 
       const emojiSearch = document.getElementById('emoji-search');
       if (emojiSearch) {
         emojiSearch.addEventListener('input', function () {
-          const query = (this.value || '').toLowerCase().trim();
-          document.querySelectorAll('.js-insert-emoji').forEach((btn) => {
-            const emoji = (btn.dataset.emoji || '').toLowerCase();
-            const tags = (btn.dataset.tags || '').toLowerCase();
-            const visible = !query || emoji.includes(query) || tags.includes(query);
-            btn.classList.toggle('d-none', !visible);
+          emojiState.query = (this.value || '').toLowerCase().trim();
+          emojiState.page = 1;
+          renderEmojiPalette();
+          renderEmojiGuide();
+        });
+      }
+
+      const emojiCategory = document.getElementById('emoji-category');
+      if (emojiCategory) {
+        emojiCategory.addEventListener('change', function () {
+          emojiState.category = this.value || '';
+          emojiState.page = 1;
+          renderEmojiPalette();
+          renderEmojiGuide();
+        });
+      }
+
+      const emojiPrevPageBtn = document.getElementById('emoji-prev-page');
+      if (emojiPrevPageBtn) {
+        emojiPrevPageBtn.addEventListener('click', function () {
+          emojiState.page = Math.max(1, emojiState.page - 1);
+          renderEmojiPalette();
+          renderEmojiGuide();
+        });
+      }
+
+      const emojiNextPageBtn = document.getElementById('emoji-next-page');
+      if (emojiNextPageBtn) {
+        emojiNextPageBtn.addEventListener('click', function () {
+          emojiState.page += 1;
+          renderEmojiPalette();
+          renderEmojiGuide();
+        });
+      }
+
+      const layerSelects = document.querySelectorAll('select[name="target"]');
+      layerSelects.forEach((select) => {
+        if (select.value) {
+          activeLayer = select.value;
+        }
+        select.addEventListener('change', function () {
+          activeLayer = this.value || 'python';
+          renderEmojiPalette();
+          renderEmojiGuide();
+        });
+        select.addEventListener('focus', function () {
+          activeLayer = this.value || 'python';
+          renderEmojiPalette();
+          renderEmojiGuide();
+        });
+      });
+
+      loadEmojiDataset();
+
+      const uploadInput = document.getElementById('upload-documents-input');
+      const dropzone = document.getElementById('upload-dropzone');
+      const dropzoneStatus = document.getElementById('upload-dropzone-status');
+
+      function updateDropzoneStatus(files) {
+        if (!dropzoneStatus) {
+          return;
+        }
+        const selected = files || (uploadInput ? uploadInput.files : null);
+        if (!selected || !selected.length) {
+          dropzoneStatus.textContent = 'Sin archivos seleccionados.';
+          return;
+        }
+        const names = Array.from(selected).slice(0, 4).map((f) => f.name);
+        const suffix = selected.length > 4 ? ` +${selected.length - 4} más` : '';
+        dropzoneStatus.textContent = `${selected.length} archivo(s): ${names.join(', ')}${suffix}`;
+      }
+
+      if (dropzone && uploadInput) {
+        ['dragenter', 'dragover'].forEach((evt) => {
+          dropzone.addEventListener(evt, function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropzone.classList.add('dropzone-upload-active');
           });
         });
+
+        ['dragleave', 'dragend', 'drop'].forEach((evt) => {
+          dropzone.addEventListener(evt, function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropzone.classList.remove('dropzone-upload-active');
+          });
+        });
+
+        dropzone.addEventListener('drop', function (e) {
+          const files = e.dataTransfer && e.dataTransfer.files ? e.dataTransfer.files : null;
+          if (!files || !files.length) {
+            return;
+          }
+          const dt = new DataTransfer();
+          Array.from(files).forEach((file) => dt.items.add(file));
+          uploadInput.files = dt.files;
+          updateDropzoneStatus(dt.files);
+        });
+
+        dropzone.addEventListener('click', function () {
+          uploadInput.click();
+        });
+
+        dropzone.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            uploadInput.click();
+          }
+        });
+
+        uploadInput.addEventListener('change', function () {
+          updateDropzoneStatus(this.files);
+        });
+
+        updateDropzoneStatus(uploadInput.files);
       }
 
       const commonSelect = document.getElementById('common_action_key');

@@ -40,6 +40,33 @@ body {
 .emoji-palette .btn {
   min-width: 2.2rem;
   padding: 0.2rem 0.45rem;
+  line-height: 1.2;
+}
+
+.emoji-program-guide {
+  border: 1px solid #bfd8ff;
+  background: #f4f9ff;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.dropzone-upload {
+  border: 2px dashed #9ec5fe;
+  border-radius: 0.5rem;
+  padding: 0.85rem;
+  background: #f8fbff;
+  color: #0d6efd;
+  font-size: 0.95rem;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+}
+
+.dropzone-upload:hover,
+.dropzone-upload-active {
+  background: #eef5ff;
+  border-color: #0d6efd;
 }
 
 .workspace-table-wrap {

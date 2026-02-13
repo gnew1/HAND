@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 def __hand_main__():
-    print("hola")
+    # [unparsed] 🐍🌐🗃️💡
 
 if __name__ == '__main__':
     __hand_main__()

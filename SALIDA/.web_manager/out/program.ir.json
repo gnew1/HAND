@@ -7,13 +7,13 @@
   "value": null,
   "children": [
     {
-      "kind": "show",
+      "kind": "stmt",
       "loc": {
         "line": 1,
-        "raw": "show \"hola\""
+        "raw": "🐍🌐🗃️💡"
       },
       "value": {
-        "expr": "\"hola\""
+        "text": "🐍🌐🗃️💡"
       },
       "children": []
     }
