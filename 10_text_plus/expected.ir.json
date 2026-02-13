@@ -1,0 +1,49 @@
+{
+  "ir_version": "0.1.0",
+  "origin": {
+    "actor": "🤖",
+    "ref": "[Lowering][🧬][IR0].module"
+  },
+  "module": {
+    "name": "text_plus",
+    "semver": "0.1.0",
+    "functions": [],
+    "toplevel": [
+      {
+        "kind": "show",
+        "value": {
+          "kind": "binary",
+          "op": "+",
+          "left": {
+            "kind": "lit",
+            "value": "\"a\"",
+            "type": {
+              "kind": "Text"
+            }
+          },
+          "right": {
+            "kind": "lit",
+            "value": "\"b\"",
+            "type": {
+              "kind": "Text"
+            }
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📤][N1].show"
+        },
+        "effects": [
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ]
+      }
+    ],
+    "types": [],
+    "capabilities": [
+      "io"
+    ]
+  }
+}

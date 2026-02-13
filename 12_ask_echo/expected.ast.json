@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "name": "x",
+      "declared_type": {
+        "name": "Text"
+      },
+      "value": {
+        "callee": "ask",
+        "args": [
+          {
+            "kind": "Text",
+            "value": "\"p\""
+          }
+        ]
+      }
+    },
+    {
+      "value": {
+        "name": "x"
+      }
+    }
+  ]
+}

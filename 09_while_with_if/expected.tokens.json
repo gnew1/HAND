@@ -1,0 +1,402 @@
+[
+  {
+    "kind": "IDENT",
+    "value": "i",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 1,
+      "col": 1,
+      "end_col": 2
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 1,
+      "col": 2,
+      "end_col": 3
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Int",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 1,
+      "col": 4,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "EQ",
+    "value": "=",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 1,
+      "col": 8,
+      "end_col": 9
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "0",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 1,
+      "col": 10,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 1,
+      "col": 11,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "while",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 2,
+      "col": 1,
+      "end_col": 6
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "i",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 2,
+      "col": 7,
+      "end_col": 8
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "<",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 2,
+      "col": 9,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "3",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 2,
+      "col": 11,
+      "end_col": 12
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 2,
+      "col": 12,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 2,
+      "col": 13,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "INDENT",
+    "value": "",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 3,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "if",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 3,
+      "col": 5,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "i",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 3,
+      "col": 8,
+      "end_col": 9
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "==",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 3,
+      "col": 10,
+      "end_col": 12
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "1",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 3,
+      "col": 13,
+      "end_col": 14
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 3,
+      "col": 14,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 3,
+      "col": 15,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "INDENT",
+    "value": "",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 4,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 4,
+      "col": 9,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "STRING",
+    "value": "\"one\"",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 4,
+      "col": 14,
+      "end_col": 19
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 4,
+      "col": 19,
+      "end_col": 19
+    }
+  },
+  {
+    "kind": "DEDENT",
+    "value": "",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 5,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "else",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 5,
+      "col": 5,
+      "end_col": 9
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 5,
+      "col": 9,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 5,
+      "col": 10,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "INDENT",
+    "value": "",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 6,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 6,
+      "col": 9,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "i",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 6,
+      "col": 14,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 6,
+      "col": 15,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "DEDENT",
+    "value": "",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 7,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "i",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 7,
+      "col": 5,
+      "end_col": 6
+    }
+  },
+  {
+    "kind": "EQ",
+    "value": "=",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 7,
+      "col": 7,
+      "end_col": 8
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "i",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 7,
+      "col": 9,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "+",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 7,
+      "col": 11,
+      "end_col": 12
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "1",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 7,
+      "col": 13,
+      "end_col": 14
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 7,
+      "col": 14,
+      "end_col": 14
+    }
+  },
+  {
+    "kind": "DEDENT",
+    "value": "",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 7,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "EOF",
+    "value": "",
+    "span": {
+      "file": "09_while_with_if.hand",
+      "line": 8,
+      "col": 1,
+      "end_col": 1
+    }
+  }
+]
