@@ -1,0 +1,73 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+.classpath
+
+# Build and Distribution
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+*.class
+*.jar
+*.war
+target/
+bin/
+obj/
+node_modules/
+package-lock.json
+yarn.lock
+
+# Logs and Databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# Environment and Configuration
+.env
+.env.local
+.venv/
+venv/
+ENV/
+env/
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.hypothesis/
+*.cover
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
