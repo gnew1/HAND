@@ -1,0 +1,56 @@
+{
+  "items": [
+    {
+      "name": "both",
+      "params": [
+        {
+          "name": "a",
+          "type": {
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "b",
+          "type": {
+            "name": "Bool"
+          }
+        }
+      ],
+      "return_type": {
+        "name": "Bool"
+      },
+      "body": [
+        {
+          "value": {
+            "name": "a"
+          }
+        },
+        {
+          "expr": {
+            "name": "and"
+          }
+        },
+        {
+          "expr": {
+            "name": "b"
+          }
+        }
+      ]
+    },
+    {
+      "value": {
+        "callee": "both",
+        "args": [
+          {
+            "kind": "Bool",
+            "value": true
+          },
+          {
+            "kind": "Bool",
+            "value": false
+          }
+        ]
+      }
+    }
+  ]
+}
