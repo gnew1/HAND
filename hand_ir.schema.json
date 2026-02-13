@@ -1,0 +1,697 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hand-lang.dev/schemas/hand-ir/v0.1/hand_ir.schema.json",
+  "title": "HAND-IR v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ir_version",
+    "module",
+    "origin"
+  ],
+  "properties": {
+    "ir_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "origin": {
+      "$ref": "#/$defs/origin"
+    },
+    "module": {
+      "$ref": "#/$defs/module"
+    }
+  },
+  "$defs": {
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "actor",
+        "ref"
+      ],
+      "properties": {
+        "actor": {
+          "type": "string",
+          "enum": [
+            "👤",
+            "⭐",
+            "🤖"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 10,
+          "pattern": "^\\[[^\\]]+\\]\\[[^\\]]+\\]\\[[^\\]]+\\]\\.[A-Za-z0-9_\\-]+$",
+          "description": "Format: [Origin][Emoji][ID].[SubID] (all bracketed parts required)."
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "functions",
+        "toplevel",
+        "capabilities"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_\\-]*$"
+        },
+        "semver": {
+          "type": "string",
+          "default": "0.1.0"
+        },
+        "functions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/function"
+          },
+          "default": []
+        },
+        "toplevel": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stmt"
+          },
+          "default": []
+        },
+        "types": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/type_decl"
+          },
+          "default": []
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      }
+    },
+    "type_decl": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "kind",
+        "origin"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "record"
+          ]
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/field"
+          },
+          "default": []
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        }
+      }
+    },
+    "field": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/type"
+        }
+      }
+    },
+    "function": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "params",
+        "body",
+        "origin",
+        "effects",
+        "capabilities"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "params": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/param"
+          },
+          "default": []
+        },
+        "ret_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/type"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "body": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stmt"
+          }
+        },
+        "contracts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/contract"
+          },
+          "default": []
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        }
+      }
+    },
+    "param": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "origin"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/type"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        }
+      }
+    },
+    "type": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "Int",
+            "Float",
+            "Bool",
+            "Text",
+            "Null",
+            "Any",
+            "Never",
+            "List",
+            "Map",
+            "Record",
+            "Optional",
+            "Result"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/type"
+          },
+          "default": []
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Record"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "name"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "List"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "args": {
+                "minItems": 1,
+                "maxItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Map"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "args": {
+                "minItems": 2,
+                "maxItems": 2
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Optional"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "args": {
+                "minItems": 1,
+                "maxItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Result"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "args": {
+                "minItems": 2,
+                "maxItems": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    "stmt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "origin"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "assign",
+            "expr",
+            "if",
+            "while",
+            "show",
+            "verify",
+            "return"
+          ]
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "name": {
+          "type": "string"
+        },
+        "declared_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/type"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/expr"
+        },
+        "cond": {
+          "$ref": "#/$defs/expr"
+        },
+        "then": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stmt"
+          },
+          "default": []
+        },
+        "else": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stmt"
+          },
+          "default": []
+        },
+        "body": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stmt"
+          },
+          "default": []
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "assign"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "name",
+              "value"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "expr"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "show"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ],
+            "properties": {
+              "effects": {
+                "default": [
+                  "io.show"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "verify"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "return"
+              }
+            }
+          },
+          "then": {}
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "if"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "cond",
+              "then"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "while"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "cond",
+              "body"
+            ]
+          }
+        }
+      ]
+    },
+    "expr": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "lit",
+            "var",
+            "unary",
+            "binary",
+            "call"
+          ]
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/type"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "value": {},
+        "name": {
+          "type": "string"
+        },
+        "op": {
+          "type": "string"
+        },
+        "left": {
+          "$ref": "#/$defs/expr"
+        },
+        "right": {
+          "$ref": "#/$defs/expr"
+        },
+        "expr": {
+          "$ref": "#/$defs/expr"
+        },
+        "callee": {
+          "type": "string"
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/expr"
+          },
+          "default": []
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "lit"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "value"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "var"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "name"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "unary"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "op",
+              "expr"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "binary"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "op",
+              "left",
+              "right"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "call"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "callee",
+              "args"
+            ]
+          }
+        }
+      ]
+    },
+    "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "expr",
+        "origin"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "verify",
+            "ensure"
+          ]
+        },
+        "expr": {
+          "$ref": "#/$defs/expr"
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        }
+      }
+    }
+  }
+}
