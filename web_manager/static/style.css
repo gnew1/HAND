@@ -1,0 +1,32 @@
+body {
+  background: linear-gradient(180deg, #eef4ff 0%, #f8fafc 220px, #f6f8fb 100%);
+}
+
+.editor {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, monospace;
+}
+
+.hero {
+  background: #ffffff;
+  border: 1px solid #dbe7ff;
+  box-shadow: 0 0.5rem 1.25rem rgba(60, 100, 180, 0.08);
+}
+
+.project-card {
+  border: 1px solid #e5ecff;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  transition: transform 120ms ease-in-out;
+}
+
+pre {
+  background: #111827;
+  color: #e5e7eb;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  min-height: 10rem;
+  max-height: 24rem;
+  overflow: auto;
+}

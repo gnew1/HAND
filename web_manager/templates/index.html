@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HAND Control Center</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container py-4">
+    <header class="mb-4 hero p-4 rounded-4">
+      <h1 class="h3 mb-1"><i class="bi bi-grid-1x2-fill me-2"></i>HAND Control Center</h1>
+      <p class="text-secondary mb-0">Gestión unificada de proyectos en SALIDA, compilación HAND y traducción de archivos.</p>
+    </header>
+
+    <section class="card shadow-sm mb-4">
+      <div class="card-body">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <h2 class="h5 mb-0"><i class="bi bi-gear-wide-connected me-2"></i>Compilar HAND rápido</h2>
+          <span class="badge text-bg-primary">Compilación</span>
+        </div>
+        <p class="small text-secondary">Compila un snippet HAND en el target elegido y opcionalmente ejecuta la salida Python.</p>
+        <form method="post" action="/compile-hand" class="row g-3" id="compile-form">
+          <div class="col-12">
+            <label class="form-label">Código HAND</label>
+            <textarea name="hand_source" class="form-control editor" rows="8" placeholder="show &quot;hola&quot;"></textarea>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Target</label>
+            <select name="target" class="form-select">
+              <option value="python">python</option>
+              <option value="html">html</option>
+              <option value="sql">sql</option>
+              <option value="rust">rust</option>
+              <option value="wasm">wasm</option>
+            </select>
+          </div>
+          <div class="col-md-8">
+            <label class="form-label">Carpeta de salida</label>
+            <input type="text" name="out_dir" class="form-control" value="{{ default_out }}">
+          </div>
+          <div class="col-12 form-check ms-1">
+            <input class="form-check-input" type="checkbox" id="run_python" name="run_python">
+            <label class="form-check-label" for="run_python">Si target=python, ejecutar también program.py</label>
+          </div>
+          <div class="col-12 d-flex gap-2">
+            <button
+              type="button"
+              class="btn btn-primary js-help-submit"
+              data-title="Compilar HAND"
+              data-help="Compila el código HAND con handc.py (MVP). Opciones: target (python/html/sql/rust/wasm), carpeta de salida y ejecución posterior de program.py para target python."
+              data-command="python handc.py <input.hand> --target <target> --out <out_dir> --emit-ir <out_dir>/program.ir.json"
+              data-form-id="compile-form"
+            >
+              <i class="bi bi-play-circle me-1"></i>Compilar
+            </button>
+            <button type="button" class="btn btn-outline-secondary js-show-help"
+              data-title="Opciones de compilación"
+              data-help="Código HAND: texto fuente a compilar. Target: formato de salida. Carpeta de salida: ruta donde se generan artefactos. Ejecutar program.py: solo aplica a target python."
+              data-command="No ejecuta; solo muestra ayuda de opciones.">
+              <i class="bi bi-question-circle me-1"></i>Ayuda
+            </button>
+          </div>
+          <input type="hidden" name="default_translate_in" value="{{ default_translate_in }}">
+          <input type="hidden" name="default_translate_out" value="{{ default_translate_out }}">
+        </form>
+      </div>
+    </section>
+
+    <section class="card shadow-sm mb-4">
+      <div class="card-body">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <h2 class="h5 mb-0"><i class="bi bi-diagram-3-fill me-2"></i>Traducir árbol de archivos</h2>
+          <span class="badge text-bg-success">Traducción</span>
+        </div>
+        <p class="small text-secondary">Convierte una carpeta de código a representación HAND y separa no traducibles.</p>
+        <form method="post" action="/translate-tree" class="row g-3" id="translate-form">
+          <div class="col-md-6">
+            <label class="form-label">Carpeta de entrada</label>
+            <input type="text" name="in_root" class="form-control" value="{{ default_translate_in }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Carpeta de salida</label>
+            <input type="text" name="translate_out" class="form-control" value="{{ default_translate_out }}">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Modo</label>
+            <select name="mode" class="form-select">
+              <option value="safe">safe</option>
+              <option value="raw">raw</option>
+            </select>
+          </div>
+          <div class="col-md-8 d-flex align-items-end">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="force" name="force">
+              <label class="form-check-label" for="force">Sobrescribir salida si existe</label>
+            </div>
+          </div>
+          <div class="col-12 d-flex gap-2">
+            <button
+              type="button"
+              class="btn btn-success js-help-submit"
+              data-title="Traducir árbol"
+              data-help="Ejecuta el traductor hand_tree_translator. Opciones: carpeta de entrada, carpeta de salida, modo safe/raw y force para sobrescribir salida existente."
+              data-command="python -m hand_tree_translator.cli --in <carpeta> --out <carpeta> --mode safe|raw [--force]"
+              data-form-id="translate-form"
+            >
+              <i class="bi bi-arrow-repeat me-1"></i>Traducir
+            </button>
+            <button type="button" class="btn btn-outline-secondary js-show-help"
+              data-title="Opciones de traducción"
+              data-help="Modo safe traduce solo construcciones seguras soportadas; modo raw envuelve más contenido sin transformar semántica completa. Force permite sobrescritura de la salida."
+              data-command="No ejecuta; solo muestra ayuda de opciones.">
+              <i class="bi bi-question-circle me-1"></i>Ayuda
+            </button>
+          </div>
+          <input type="hidden" name="default_input" value="{{ default_input }}">
+          <input type="hidden" name="default_out" value="{{ default_out }}">
+        </form>
+      </div>
+    </section>
+
+    <section class="mb-4">
+      <h2 class="h5 mb-3"><i class="bi bi-folder2-open me-2"></i>Proyectos detectados en SALIDA</h2>
+      <div class="row g-3">
+        {% for project in projects %}
+          <div class="col-12 col-lg-6">
+            <div class="card h-100 shadow-sm project-card">
+              <div class="card-body">
+                <h3 class="h6 mb-1 d-flex align-items-center gap-2">
+                  <i class="bi bi-box-seam"></i>{{ project.name }}
+                  <span class="badge text-bg-light border">{{ project.actions|length }} acciones</span>
+                </h3>
+                <p class="small text-secondary mb-3">{{ project.rel_path }}</p>
+
+                {% if project.actions %}
+                  <div class="d-grid gap-2">
+                    {% for action in project.actions %}
+                      <form method="post" action="/run-action" id="form-{{ project.name|replace('.', '-')|replace('_', '-')|replace('/', '-') }}-{{ action.key }}">
+                        <input type="hidden" name="project_path" value="{{ project.rel_path }}">
+                        <input type="hidden" name="action_key" value="{{ action.key }}">
+                        <input type="hidden" name="default_input" value="{{ default_input }}">
+                        <input type="hidden" name="default_out" value="{{ default_out }}">
+                        <input type="hidden" name="default_translate_in" value="{{ default_translate_in }}">
+                        <input type="hidden" name="default_translate_out" value="{{ default_translate_out }}">
+                        <button
+                          type="button"
+                          class="btn btn-outline-primary btn-sm w-100 text-start js-help-submit"
+                          data-title="{{ project.name }} · {{ action.label }}"
+                          data-help="{{ action.description }}"
+                          data-command="{{ action.command | join(' ') }}"
+                          data-form-id="form-{{ project.name|replace('.', '-')|replace('_', '-')|replace('/', '-') }}-{{ action.key }}"
+                        >
+                          <i class="bi bi-play-btn me-1"></i>{{ action.label }}
+                        </button>
+                        <div class="small text-secondary mt-1 d-flex align-items-center gap-2">
+                          <i class="bi bi-info-circle"></i>{{ action.description }}
+                        </div>
+                      </form>
+                    {% endfor %}
+                  </div>
+                {% else %}
+                  <p class="small text-secondary mb-0">Sin acciones automáticas detectadas.</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    {% if last_result %}
+      <section class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h2 class="h5">Resultado: {{ last_result.title }}</h2>
+          <p class="small text-secondary mb-2">{{ last_result.command }}<br>{{ last_result.cwd }} · {{ last_result.duration }}s · rc={{ last_result.returncode }}</p>
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <h3 class="h6">stdout</h3>
+              <pre>{{ last_result.stdout }}</pre>
+            </div>
+            <div class="col-12 col-lg-6">
+              <h3 class="h6">stderr</h3>
+              <pre>{{ last_result.stderr }}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if compile_result %}
+      <section class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h2 class="h5">Resultado: {{ compile_result.title }}</h2>
+          <p class="small text-secondary mb-2">{{ compile_result.command }}<br>{{ compile_result.cwd }} · {{ compile_result.duration }}s · rc={{ compile_result.returncode }}</p>
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <h3 class="h6">stdout</h3>
+              <pre>{{ compile_result.stdout }}</pre>
+            </div>
+            <div class="col-12 col-lg-6">
+              <h3 class="h6">stderr</h3>
+              <pre>{{ compile_result.stderr }}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if translate_result %}
+      <section class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h2 class="h5">Resultado: {{ translate_result.title }}</h2>
+          <p class="small text-secondary mb-2">{{ translate_result.command }}<br>{{ translate_result.cwd }} · {{ translate_result.duration }}s · rc={{ translate_result.returncode }}</p>
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <h3 class="h6">stdout</h3>
+              <pre>{{ translate_result.stdout }}</pre>
+            </div>
+            <div class="col-12 col-lg-6">
+              <h3 class="h6">stderr</h3>
+              <pre>{{ translate_result.stderr }}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  </main>
+
+  <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title fs-5" id="helpModalLabel">Ayuda</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p id="helpModalText" class="mb-2"></p>
+          <label class="form-label small text-secondary mb-1">Comando/acción</label>
+          <pre id="helpModalCommand" class="mb-0"></pre>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary d-none" id="helpModalExecute">
+            <i class="bi bi-play-circle me-1"></i>Ejecutar ahora
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      const modalEl = document.getElementById('helpModal');
+      const titleEl = document.getElementById('helpModalLabel');
+      const textEl = document.getElementById('helpModalText');
+      const cmdEl = document.getElementById('helpModalCommand');
+      const execBtn = document.getElementById('helpModalExecute');
+      const modal = new bootstrap.Modal(modalEl);
+
+      function openHelp(title, help, command, formId) {
+        titleEl.textContent = title || 'Ayuda';
+        textEl.textContent = help || 'Sin detalles disponibles.';
+        cmdEl.textContent = command || 'Sin comando asociado.';
+
+        if (formId) {
+          execBtn.classList.remove('d-none');
+          execBtn.onclick = function () {
+            const form = document.getElementById(formId);
+            if (form) {
+              form.submit();
+            }
+          };
+        } else {
+          execBtn.classList.add('d-none');
+          execBtn.onclick = null;
+        }
+
+        modal.show();
+      }
+
+      document.querySelectorAll('.js-help-submit').forEach((btn) => {
+        btn.addEventListener('click', function () {
+          openHelp(
+            this.dataset.title,
+            this.dataset.help,
+            this.dataset.command,
+            this.dataset.formId
+          );
+        });
+      });
+
+      document.querySelectorAll('.js-show-help').forEach((btn) => {
+        btn.addEventListener('click', function () {
+          openHelp(
+            this.dataset.title,
+            this.dataset.help,
+            this.dataset.command,
+            null
+          );
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
