@@ -1,0 +1,244 @@
+{
+  "ir_version": "0.1.0",
+  "origin": {
+    "actor": "🤖",
+    "ref": "[Lowering][🧬][IR0].module"
+  },
+  "module": {
+    "name": "mini_crud",
+    "semver": "0.1.0",
+    "functions": [
+      {
+        "name": "create_user",
+        "params": [
+          {
+            "name": "id",
+            "type": {
+              "kind": "Int"
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][🏷️][N5].param_id"
+            }
+          },
+          {
+            "name": "name",
+            "type": {
+              "kind": "Text"
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][🏷️][N6].param_name"
+            }
+          }
+        ],
+        "ret_type": {
+          "kind": "Null"
+        },
+        "body": [
+          {
+            "kind": "show",
+            "value": {
+              "kind": "lit",
+              "value": "\"INSERT users\"",
+              "type": {
+                "kind": "Text"
+              }
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][📤][N3].show"
+            },
+            "effects": [
+              "io.show"
+            ],
+            "capabilities": [
+              "io"
+            ]
+          },
+          {
+            "kind": "return",
+            "value": {
+              "kind": "lit",
+              "value": null,
+              "type": {
+                "kind": "Null"
+              }
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][↩️][N4].return"
+            },
+            "effects": [
+              "control.return"
+            ],
+            "capabilities": []
+          }
+        ],
+        "contracts": [],
+        "effects": [
+          "control.return",
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ],
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][🛠][N2].fn_create_user"
+        }
+      },
+      {
+        "name": "get_user",
+        "params": [
+          {
+            "name": "id",
+            "type": {
+              "kind": "Int"
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][🏷️][N10].param_id"
+            }
+          }
+        ],
+        "ret_type": {
+          "kind": "Text"
+        },
+        "body": [
+          {
+            "kind": "show",
+            "value": {
+              "kind": "lit",
+              "value": "\"SELECT users\"",
+              "type": {
+                "kind": "Text"
+              }
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][📤][N8].show"
+            },
+            "effects": [
+              "io.show"
+            ],
+            "capabilities": [
+              "io"
+            ]
+          },
+          {
+            "kind": "return",
+            "value": {
+              "kind": "lit",
+              "value": "\"user\"",
+              "type": {
+                "kind": "Text"
+              }
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][↩️][N9].return"
+            },
+            "effects": [
+              "control.return"
+            ],
+            "capabilities": []
+          }
+        ],
+        "contracts": [],
+        "effects": [
+          "control.return",
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ],
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][🛠][N7].fn_get_user"
+        }
+      }
+    ],
+    "toplevel": [
+      {
+        "kind": "show",
+        "value": {
+          "kind": "lit",
+          "value": "\"CRUD intent\"",
+          "type": {
+            "kind": "Text"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📤][N1].show"
+        },
+        "effects": [
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ]
+      },
+      {
+        "kind": "expr",
+        "value": {
+          "kind": "call",
+          "callee": "create_user",
+          "args": [
+            {
+              "kind": "lit",
+              "value": 1,
+              "type": {
+                "kind": "Int"
+              }
+            },
+            {
+              "kind": "lit",
+              "value": "\"ana\"",
+              "type": {
+                "kind": "Text"
+              }
+            }
+          ]
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][🧩][N11].expr"
+        },
+        "effects": [],
+        "capabilities": []
+      },
+      {
+        "kind": "show",
+        "value": {
+          "kind": "call",
+          "callee": "get_user",
+          "args": [
+            {
+              "kind": "lit",
+              "value": 1,
+              "type": {
+                "kind": "Int"
+              }
+            }
+          ]
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📤][N12].show"
+        },
+        "effects": [
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ]
+      }
+    ],
+    "types": [],
+    "capabilities": [
+      "io"
+    ]
+  }
+}

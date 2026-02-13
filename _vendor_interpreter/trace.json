@@ -1,0 +1,276 @@
+[
+  {
+    "step": 1,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 2,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Literal"
+    }
+  },
+  {
+    "step": 3,
+    "kind": "assign",
+    "detail": {
+      "name": "i",
+      "value": "0"
+    }
+  },
+  {
+    "step": 4,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 5,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "WhileStmt"
+    }
+  },
+  {
+    "step": 6,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Binary"
+    }
+  },
+  {
+    "step": 7,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Var"
+    }
+  },
+  {
+    "step": 8,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Literal"
+    }
+  },
+  {
+    "step": 9,
+    "kind": "loop_check",
+    "detail": {
+      "iter": 1,
+      "cond": true
+    }
+  },
+  {
+    "step": 10,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "ShowStmt"
+    }
+  },
+  {
+    "step": 11,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Var"
+    }
+  },
+  {
+    "step": 12,
+    "kind": "io",
+    "detail": {
+      "op": "show",
+      "value": "0"
+    }
+  },
+  {
+    "step": 13,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "ShowStmt"
+    }
+  },
+  {
+    "step": 14,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 15,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Binary"
+    }
+  },
+  {
+    "step": 16,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Var"
+    }
+  },
+  {
+    "step": 17,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Literal"
+    }
+  },
+  {
+    "step": 18,
+    "kind": "assign",
+    "detail": {
+      "name": "i",
+      "value": "1"
+    }
+  },
+  {
+    "step": 19,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 20,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Binary"
+    }
+  },
+  {
+    "step": 21,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Var"
+    }
+  },
+  {
+    "step": 22,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Literal"
+    }
+  },
+  {
+    "step": 23,
+    "kind": "loop_check",
+    "detail": {
+      "iter": 2,
+      "cond": true
+    }
+  },
+  {
+    "step": 24,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "ShowStmt"
+    }
+  },
+  {
+    "step": 25,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Var"
+    }
+  },
+  {
+    "step": 26,
+    "kind": "io",
+    "detail": {
+      "op": "show",
+      "value": "1"
+    }
+  },
+  {
+    "step": 27,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "ShowStmt"
+    }
+  },
+  {
+    "step": 28,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 29,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Binary"
+    }
+  },
+  {
+    "step": 30,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Var"
+    }
+  },
+  {
+    "step": 31,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Literal"
+    }
+  },
+  {
+    "step": 32,
+    "kind": "assign",
+    "detail": {
+      "name": "i",
+      "value": "2"
+    }
+  },
+  {
+    "step": 33,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 34,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Binary"
+    }
+  },
+  {
+    "step": 35,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Var"
+    }
+  },
+  {
+    "step": 36,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Literal"
+    }
+  },
+  {
+    "step": 37,
+    "kind": "loop_check",
+    "detail": {
+      "iter": 3,
+      "cond": false
+    }
+  },
+  {
+    "step": 38,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "WhileStmt"
+    }
+  }
+]

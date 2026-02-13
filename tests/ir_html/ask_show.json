@@ -1,0 +1,42 @@
+{
+  "ir_version": "0.1.0",
+  "module": {
+    "name": "html_demo",
+    "semver": "0.1.0",
+    "capabilities": [
+      "io.read",
+      "io.write"
+    ],
+    "types": [],
+    "functions": [],
+    "toplevel": [
+      {
+        "kind": "assign",
+        "name": "name",
+        "value": {
+          "kind": "call",
+          "callee": "ask",
+          "args": [
+            {
+              "kind": "lit",
+              "value": "\"Your name\"",
+              "type": {
+                "kind": "Text"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "kind": "show",
+        "value": {
+          "kind": "var",
+          "name": "name",
+          "type": {
+            "kind": "Text"
+          }
+        }
+      }
+    ]
+  }
+}

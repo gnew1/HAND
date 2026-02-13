@@ -1,0 +1,4 @@
+a: Int = 10
+b: Int = 4
+show a - b
+show a * b
