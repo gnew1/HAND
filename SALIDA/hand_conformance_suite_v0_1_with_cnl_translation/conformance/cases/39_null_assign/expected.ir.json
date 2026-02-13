@@ -1,0 +1,55 @@
+{
+  "ir_version": "0.1.0",
+  "origin": {
+    "actor": "🤖",
+    "ref": "[Lowering][🧬][IR0].module"
+  },
+  "module": {
+    "name": "null_assign",
+    "semver": "0.1.0",
+    "functions": [],
+    "toplevel": [
+      {
+        "kind": "assign",
+        "name": "n",
+        "declared_type": {
+          "kind": "Null"
+        },
+        "value": {
+          "kind": "lit",
+          "value": null,
+          "type": {
+            "kind": "Null"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📝][N1].assign"
+        },
+        "effects": [],
+        "capabilities": []
+      },
+      {
+        "kind": "show",
+        "value": {
+          "kind": "var",
+          "name": "n"
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📤][N2].show"
+        },
+        "effects": [
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ]
+      }
+    ],
+    "types": [],
+    "capabilities": [
+      "io"
+    ]
+  }
+}

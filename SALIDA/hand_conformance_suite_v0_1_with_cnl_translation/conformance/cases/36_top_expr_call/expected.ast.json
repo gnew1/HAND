@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "name": "h",
+      "params": [],
+      "return_type": {
+        "name": "Text"
+      },
+      "body": [
+        {
+          "value": {
+            "kind": "Text",
+            "value": "\"ok\""
+          }
+        }
+      ]
+    },
+    {
+      "value": {
+        "callee": "h",
+        "args": []
+      }
+    }
+  ]
+}

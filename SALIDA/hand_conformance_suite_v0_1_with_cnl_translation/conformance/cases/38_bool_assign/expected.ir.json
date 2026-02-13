@@ -1,0 +1,93 @@
+{
+  "ir_version": "0.1.0",
+  "origin": {
+    "actor": "🤖",
+    "ref": "[Lowering][🧬][IR0].module"
+  },
+  "module": {
+    "name": "bool_assign",
+    "semver": "0.1.0",
+    "functions": [],
+    "toplevel": [
+      {
+        "kind": "assign",
+        "name": "ok",
+        "declared_type": {
+          "kind": "Bool"
+        },
+        "value": {
+          "kind": "lit",
+          "value": true,
+          "type": {
+            "kind": "Bool"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📝][N1].assign"
+        },
+        "effects": [],
+        "capabilities": []
+      },
+      {
+        "kind": "if",
+        "cond": {
+          "kind": "var",
+          "name": "ok"
+        },
+        "then": [
+          {
+            "kind": "show",
+            "value": {
+              "kind": "lit",
+              "value": "\"y\"",
+              "type": {
+                "kind": "Text"
+              }
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][📤][N3].show"
+            },
+            "effects": [
+              "io.show"
+            ],
+            "capabilities": [
+              "io"
+            ]
+          }
+        ],
+        "else": [
+          {
+            "kind": "show",
+            "value": {
+              "kind": "lit",
+              "value": "\"n\"",
+              "type": {
+                "kind": "Text"
+              }
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][📤][N4].show"
+            },
+            "effects": [
+              "io.show"
+            ],
+            "capabilities": [
+              "io"
+            ]
+          }
+        ],
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][🧭][N2].if"
+        },
+        "effects": [],
+        "capabilities": []
+      }
+    ],
+    "types": [],
+    "capabilities": []
+  }
+}

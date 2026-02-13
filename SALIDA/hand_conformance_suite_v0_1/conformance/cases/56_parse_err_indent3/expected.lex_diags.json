@@ -1,0 +1,12 @@
+[
+  {
+    "severity": "error",
+    "idref": "2🐛1",
+    "code": "HND-INDENT-0001"
+  },
+  {
+    "severity": "error",
+    "idref": "2🐛2",
+    "code": "HND-INDENT-0002"
+  }
+]

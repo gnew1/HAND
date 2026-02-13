@@ -1,0 +1,115 @@
+{
+  "ir_version": "0.1.0",
+  "origin": {
+    "actor": "🤖",
+    "ref": "[Lowering][🧬][IR0].module"
+  },
+  "module": {
+    "name": "if_expr_cond",
+    "semver": "0.1.0",
+    "functions": [],
+    "toplevel": [
+      {
+        "kind": "assign",
+        "name": "x",
+        "declared_type": {
+          "kind": "Int"
+        },
+        "value": {
+          "kind": "lit",
+          "value": 5,
+          "type": {
+            "kind": "Int"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📝][N1].assign"
+        },
+        "effects": [],
+        "capabilities": []
+      },
+      {
+        "kind": "if",
+        "cond": {
+          "kind": "binary",
+          "op": ">",
+          "left": {
+            "kind": "binary",
+            "op": "-",
+            "left": {
+              "kind": "var",
+              "name": "x"
+            },
+            "right": {
+              "kind": "lit",
+              "value": 3,
+              "type": {
+                "kind": "Int"
+              }
+            }
+          },
+          "right": {
+            "kind": "lit",
+            "value": 1,
+            "type": {
+              "kind": "Int"
+            }
+          }
+        },
+        "then": [
+          {
+            "kind": "show",
+            "value": {
+              "kind": "lit",
+              "value": 1,
+              "type": {
+                "kind": "Int"
+              }
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][📤][N3].show"
+            },
+            "effects": [
+              "io.show"
+            ],
+            "capabilities": [
+              "io"
+            ]
+          }
+        ],
+        "else": [
+          {
+            "kind": "show",
+            "value": {
+              "kind": "lit",
+              "value": 0,
+              "type": {
+                "kind": "Int"
+              }
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][📤][N4].show"
+            },
+            "effects": [
+              "io.show"
+            ],
+            "capabilities": [
+              "io"
+            ]
+          }
+        ],
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][🧭][N2].if"
+        },
+        "effects": [],
+        "capabilities": []
+      }
+    ],
+    "types": [],
+    "capabilities": []
+  }
+}

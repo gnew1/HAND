@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hand-tree-translator"
+version = "0.1.0"
+description = "Translate a folder tree of source files into a simple HAND representation, routing non-translatable files to a quarantine folder."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name="Juan Ortiz"}]
+license = {text="MIT"}
+dependencies = []
+
+[project.scripts]
+hand-tree-translate = "hand_tree_translator.cli:main"

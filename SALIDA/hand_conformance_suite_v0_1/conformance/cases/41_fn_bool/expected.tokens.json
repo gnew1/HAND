@@ -1,0 +1,312 @@
+[
+  {
+    "kind": "EMOJI",
+    "value": "🛠",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 1,
+      "end_col": 2
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "both",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 3,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "LPAREN",
+    "value": "(",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 7,
+      "end_col": 8
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "a",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 8,
+      "end_col": 9
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 9,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Bool",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 11,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "COMMA",
+    "value": ",",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 15,
+      "end_col": 16
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "b",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 17,
+      "end_col": 18
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 18,
+      "end_col": 19
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Bool",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 20,
+      "end_col": 24
+    }
+  },
+  {
+    "kind": "RPAREN",
+    "value": ")",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 24,
+      "end_col": 25
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "->",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 26,
+      "end_col": 28
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Bool",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 29,
+      "end_col": 33
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 33,
+      "end_col": 34
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 1,
+      "col": 34,
+      "end_col": 34
+    }
+  },
+  {
+    "kind": "INDENT",
+    "value": "",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 2,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "return",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 2,
+      "col": 5,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "a",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 2,
+      "col": 12,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "and",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 2,
+      "col": 14,
+      "end_col": 17
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "b",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 2,
+      "col": 18,
+      "end_col": 19
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 2,
+      "col": 19,
+      "end_col": 19
+    }
+  },
+  {
+    "kind": "DEDENT",
+    "value": "",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 3,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 3,
+      "col": 1,
+      "end_col": 5
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "both",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 3,
+      "col": 6,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "LPAREN",
+    "value": "(",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 3,
+      "col": 10,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "true",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 3,
+      "col": 11,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "COMMA",
+    "value": ",",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 3,
+      "col": 15,
+      "end_col": 16
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "false",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 3,
+      "col": 17,
+      "end_col": 22
+    }
+  },
+  {
+    "kind": "RPAREN",
+    "value": ")",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 3,
+      "col": 22,
+      "end_col": 23
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 3,
+      "col": 23,
+      "end_col": 23
+    }
+  },
+  {
+    "kind": "EOF",
+    "value": "",
+    "span": {
+      "file": "41_fn_bool.hand",
+      "line": 4,
+      "col": 1,
+      "end_col": 1
+    }
+  }
+]

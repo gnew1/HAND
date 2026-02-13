@@ -1,0 +1,60 @@
+[
+  {
+    "step": 1,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "ShowStmt"
+    }
+  },
+  {
+    "step": 2,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Call"
+    }
+  },
+  {
+    "step": 3,
+    "kind": "call",
+    "detail": {
+      "fn": "h",
+      "args": []
+    }
+  },
+  {
+    "step": 4,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "ReturnStmt"
+    }
+  },
+  {
+    "step": 5,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Literal"
+    }
+  },
+  {
+    "step": 6,
+    "kind": "return",
+    "detail": {
+      "value": "z"
+    }
+  },
+  {
+    "step": 7,
+    "kind": "io",
+    "detail": {
+      "op": "show",
+      "value": "z"
+    }
+  },
+  {
+    "step": 8,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "ShowStmt"
+    }
+  }
+]

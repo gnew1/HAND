@@ -1,0 +1,27 @@
+version: 0.1
+# You can add new layers without breaking old ones.
+layers:
+  core:
+    name: Core
+    tags:
+      core.assign: { emoji: "🟰", desc: "Assignment / binding" }
+      core.name:   { emoji: "🏷️", desc: "Identifier / name" }
+      core.const:  { emoji: "🧱", desc: "Constant literal" }
+  flow:
+    name: Flow
+    tags:
+      flow.if:     { emoji: "🤔", desc: "Conditional branch" }
+      flow.else:   { emoji: "↩️", desc: "Else branch" }
+      flow.while:  { emoji: "🔁", desc: "While loop" }
+      flow.for:    { emoji: "🔂", desc: "For loop" }
+      flow.func:   { emoji: "🧩", desc: "Function definition" }
+      flow.return: { emoji: "🔙", desc: "Return value" }
+  io:
+    name: I/O
+    tags:
+      io.print:    { emoji: "🗣️", desc: "Output / print" }
+  reserved:
+    name: Reserved
+    tags:
+      reserved.type: { emoji: "🧬", desc: "Reserved for types layer" }
+      reserved.async:{ emoji: "⏱️", desc: "Reserved for async layer" }

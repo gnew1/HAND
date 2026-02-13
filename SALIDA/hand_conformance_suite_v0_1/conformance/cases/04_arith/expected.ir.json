@@ -1,0 +1,108 @@
+{
+  "ir_version": "0.1.0",
+  "origin": {
+    "actor": "🤖",
+    "ref": "[Lowering][🧬][IR0].module"
+  },
+  "module": {
+    "name": "arith",
+    "semver": "0.1.0",
+    "functions": [],
+    "toplevel": [
+      {
+        "kind": "assign",
+        "name": "a",
+        "declared_type": {
+          "kind": "Int"
+        },
+        "value": {
+          "kind": "lit",
+          "value": 10,
+          "type": {
+            "kind": "Int"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📝][N1].assign"
+        },
+        "effects": [],
+        "capabilities": []
+      },
+      {
+        "kind": "assign",
+        "name": "b",
+        "declared_type": {
+          "kind": "Int"
+        },
+        "value": {
+          "kind": "lit",
+          "value": 4,
+          "type": {
+            "kind": "Int"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📝][N2].assign"
+        },
+        "effects": [],
+        "capabilities": []
+      },
+      {
+        "kind": "show",
+        "value": {
+          "kind": "binary",
+          "op": "-",
+          "left": {
+            "kind": "var",
+            "name": "a"
+          },
+          "right": {
+            "kind": "var",
+            "name": "b"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📤][N3].show"
+        },
+        "effects": [
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ]
+      },
+      {
+        "kind": "show",
+        "value": {
+          "kind": "binary",
+          "op": "*",
+          "left": {
+            "kind": "var",
+            "name": "a"
+          },
+          "right": {
+            "kind": "var",
+            "name": "b"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📤][N4].show"
+        },
+        "effects": [
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ]
+      }
+    ],
+    "types": [],
+    "capabilities": [
+      "io"
+    ]
+  }
+}

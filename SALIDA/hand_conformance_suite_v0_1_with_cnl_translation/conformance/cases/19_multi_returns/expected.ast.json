@@ -1,0 +1,69 @@
+{
+  "items": [
+    {
+      "name": "g",
+      "params": [
+        {
+          "name": "a",
+          "type": {
+            "name": "Int"
+          }
+        }
+      ],
+      "return_type": {
+        "name": "Int"
+      },
+      "body": [
+        {
+          "cond": {
+            "left": {
+              "name": "a"
+            },
+            "op": "==",
+            "right": {
+              "kind": "Int",
+              "value": 0
+            }
+          },
+          "then_body": [
+            {
+              "value": {
+                "kind": "Int",
+                "value": 7
+              }
+            }
+          ],
+          "else_body": null
+        },
+        {
+          "value": {
+            "kind": "Int",
+            "value": 9
+          }
+        }
+      ]
+    },
+    {
+      "value": {
+        "callee": "g",
+        "args": [
+          {
+            "kind": "Int",
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "value": {
+        "callee": "g",
+        "args": [
+          {
+            "kind": "Int",
+            "value": 1
+          }
+        ]
+      }
+    }
+  ]
+}

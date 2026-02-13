@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "name": "x",
+      "declared_type": {
+        "name": "Int"
+      },
+      "value": {
+        "kind": "Int",
+        "value": 1
+      }
+    },
+    {
+      "name": "f",
+      "params": [
+        {
+          "name": "x",
+          "type": {
+            "name": "Int"
+          }
+        }
+      ],
+      "return_type": {
+        "name": "Int"
+      },
+      "body": [
+        {
+          "value": {
+            "left": {
+              "name": "x"
+            },
+            "op": "+",
+            "right": {
+              "kind": "Int",
+              "value": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "value": {
+        "callee": "f",
+        "args": [
+          {
+            "kind": "Int",
+            "value": 5
+          }
+        ]
+      }
+    },
+    {
+      "value": {
+        "name": "x"
+      }
+    }
+  ]
+}

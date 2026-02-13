@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "name": "t",
+      "declared_type": {
+        "name": "Text"
+      },
+      "value": {
+        "kind": "Text",
+        "value": "\"a\""
+      }
+    },
+    {
+      "value": {
+        "left": {
+          "name": "t"
+        },
+        "op": "==",
+        "right": {
+          "kind": "Text",
+          "value": "\"a\""
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+t: Text = "a"
+show t == "a"

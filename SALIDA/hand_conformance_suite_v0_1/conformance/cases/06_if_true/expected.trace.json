@@ -1,0 +1,65 @@
+{
+  "outputs": [
+    "T"
+  ],
+  "events": [
+    {
+      "step": 1,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "IfStmt"
+      }
+    },
+    {
+      "step": 2,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 3,
+      "kind": "branch",
+      "detail": {
+        "cond": true
+      }
+    },
+    {
+      "step": 4,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 5,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 6,
+      "kind": "io",
+      "detail": {
+        "op": "show",
+        "value": "T"
+      }
+    },
+    {
+      "step": 7,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 8,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "IfStmt"
+      }
+    }
+  ],
+  "runtime_error": null
+}

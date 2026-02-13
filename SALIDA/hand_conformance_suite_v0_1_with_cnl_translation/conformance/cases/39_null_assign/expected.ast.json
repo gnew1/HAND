@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "name": "n",
+      "declared_type": {
+        "name": "Null"
+      },
+      "value": {
+        "kind": "Null",
+        "value": null
+      }
+    },
+    {
+      "value": {
+        "name": "n"
+      }
+    }
+  ]
+}

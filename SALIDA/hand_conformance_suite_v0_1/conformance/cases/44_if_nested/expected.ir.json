@@ -1,0 +1,144 @@
+{
+  "ir_version": "0.1.0",
+  "origin": {
+    "actor": "🤖",
+    "ref": "[Lowering][🧬][IR0].module"
+  },
+  "module": {
+    "name": "if_nested",
+    "semver": "0.1.0",
+    "functions": [],
+    "toplevel": [
+      {
+        "kind": "assign",
+        "name": "x",
+        "declared_type": {
+          "kind": "Int"
+        },
+        "value": {
+          "kind": "lit",
+          "value": 2,
+          "type": {
+            "kind": "Int"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📝][N1].assign"
+        },
+        "effects": [],
+        "capabilities": []
+      },
+      {
+        "kind": "if",
+        "cond": {
+          "kind": "binary",
+          "op": "==",
+          "left": {
+            "kind": "var",
+            "name": "x"
+          },
+          "right": {
+            "kind": "lit",
+            "value": 2,
+            "type": {
+              "kind": "Int"
+            }
+          }
+        },
+        "then": [
+          {
+            "kind": "if",
+            "cond": {
+              "kind": "lit",
+              "value": true,
+              "type": {
+                "kind": "Bool"
+              }
+            },
+            "then": [
+              {
+                "kind": "show",
+                "value": {
+                  "kind": "lit",
+                  "value": 7,
+                  "type": {
+                    "kind": "Int"
+                  }
+                },
+                "origin": {
+                  "actor": "👤",
+                  "ref": "[AST][📤][N4].show"
+                },
+                "effects": [
+                  "io.show"
+                ],
+                "capabilities": [
+                  "io"
+                ]
+              }
+            ],
+            "else": [
+              {
+                "kind": "show",
+                "value": {
+                  "kind": "lit",
+                  "value": 8,
+                  "type": {
+                    "kind": "Int"
+                  }
+                },
+                "origin": {
+                  "actor": "👤",
+                  "ref": "[AST][📤][N5].show"
+                },
+                "effects": [
+                  "io.show"
+                ],
+                "capabilities": [
+                  "io"
+                ]
+              }
+            ],
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][🧭][N3].if"
+            },
+            "effects": [],
+            "capabilities": []
+          }
+        ],
+        "else": [
+          {
+            "kind": "show",
+            "value": {
+              "kind": "lit",
+              "value": 0,
+              "type": {
+                "kind": "Int"
+              }
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][📤][N6].show"
+            },
+            "effects": [
+              "io.show"
+            ],
+            "capabilities": [
+              "io"
+            ]
+          }
+        ],
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][🧭][N2].if"
+        },
+        "effects": [],
+        "capabilities": []
+      }
+    ],
+    "types": [],
+    "capabilities": []
+  }
+}

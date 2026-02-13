@@ -1,0 +1,5 @@
+x: Int = 1
+if x == 1:
+    show "yes"
+else:
+    show "no"

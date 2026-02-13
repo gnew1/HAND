@@ -1,0 +1,136 @@
+{
+  "outputs": [
+    "7"
+  ],
+  "events": [
+    {
+      "step": 1,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "AssignStmt"
+      }
+    },
+    {
+      "step": 2,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 3,
+      "kind": "assign",
+      "detail": {
+        "name": "x",
+        "value": "2"
+      }
+    },
+    {
+      "step": 4,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "AssignStmt"
+      }
+    },
+    {
+      "step": 5,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "IfStmt"
+      }
+    },
+    {
+      "step": 6,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Binary"
+      }
+    },
+    {
+      "step": 7,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Var"
+      }
+    },
+    {
+      "step": 8,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 9,
+      "kind": "branch",
+      "detail": {
+        "cond": true
+      }
+    },
+    {
+      "step": 10,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "IfStmt"
+      }
+    },
+    {
+      "step": 11,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 12,
+      "kind": "branch",
+      "detail": {
+        "cond": true
+      }
+    },
+    {
+      "step": 13,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 14,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 15,
+      "kind": "io",
+      "detail": {
+        "op": "show",
+        "value": "7"
+      }
+    },
+    {
+      "step": 16,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 17,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "IfStmt"
+      }
+    },
+    {
+      "step": 18,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "IfStmt"
+      }
+    }
+  ],
+  "runtime_error": null
+}

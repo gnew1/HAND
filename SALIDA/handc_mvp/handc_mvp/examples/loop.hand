@@ -1,0 +1,3 @@
+program "Loop Demo":
+    loop 3 times:
+        show "tick"

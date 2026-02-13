@@ -1,0 +1,744 @@
+[
+  {
+    "case_id": "01_hello",
+    "name": "hello",
+    "inputs": [],
+    "features": [
+      "show"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "02_bools_null",
+    "name": "bools_null",
+    "inputs": [],
+    "features": [
+      "show"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "03_assign_int",
+    "name": "assign_int",
+    "inputs": [],
+    "features": [
+      "op:+",
+      "show",
+      "type:Int"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "04_arith",
+    "name": "arith",
+    "inputs": [],
+    "features": [
+      "op:*",
+      "op:-",
+      "show",
+      "type:Int"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "05_compare",
+    "name": "compare",
+    "inputs": [],
+    "features": [
+      "op:<",
+      "op:>",
+      "op:>=",
+      "show",
+      "type:Int"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "06_if_true",
+    "name": "if_true",
+    "inputs": [],
+    "features": [
+      "else",
+      "if",
+      "show"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "07_if_false",
+    "name": "if_false",
+    "inputs": [],
+    "features": [
+      "else",
+      "if",
+      "show"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "08_while_count",
+    "name": "while_count",
+    "inputs": [],
+    "features": [
+      "op:+",
+      "op:<",
+      "show",
+      "type:Int",
+      "while"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "09_while_with_if",
+    "name": "while_with_if",
+    "inputs": [],
+    "features": [
+      "else",
+      "if",
+      "op:+",
+      "op:<",
+      "op:==",
+      "show",
+      "type:Int",
+      "while"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "10_text_plus",
+    "name": "text_plus",
+    "inputs": [],
+    "features": [
+      "op:+",
+      "show"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "11_float_ops",
+    "name": "float_ops",
+    "inputs": [],
+    "features": [
+      "op:+",
+      "show",
+      "type:Float"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "12_ask_echo",
+    "name": "ask_echo",
+    "inputs": [
+      "in1"
+    ],
+    "features": [
+      "ask",
+      "show",
+      "type:Text"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "13_ask_concat",
+    "name": "ask_concat",
+    "inputs": [
+      "in1",
+      "in2"
+    ],
+    "features": [
+      "ask",
+      "op:+",
+      "show",
+      "type:Text"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "14_verify_ok",
+    "name": "verify_ok",
+    "inputs": [],
+    "features": [
+      "op:==",
+      "show",
+      "type:Int",
+      "verify"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "15_fn_add",
+    "name": "fn_add",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:+",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Int"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "16_fn_nested",
+    "name": "fn_nested",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:+",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Int"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "17_fn_if",
+    "name": "fn_if",
+    "inputs": [],
+    "features": [
+      "else",
+      "fn",
+      "if",
+      "op:-",
+      "op:<",
+      "op:>",
+      "return",
+      "show",
+      "type:Int",
+      "type:Text"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "18_shadowing",
+    "name": "shadowing",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:+",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Int"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "19_multi_returns",
+    "name": "multi_returns",
+    "inputs": [],
+    "features": [
+      "fn",
+      "if",
+      "op:-",
+      "op:==",
+      "op:>",
+      "return",
+      "show",
+      "type:Int"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "20_fn_zero_args",
+    "name": "fn_zero_args",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Text"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "21_while_sum",
+    "name": "while_sum",
+    "inputs": [],
+    "features": [
+      "op:+",
+      "op:<",
+      "op:<=",
+      "show",
+      "type:Int",
+      "while"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "22_precedence",
+    "name": "precedence",
+    "inputs": [],
+    "features": [
+      "op:*",
+      "op:+",
+      "show",
+      "type:Int"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "23_parens",
+    "name": "parens",
+    "inputs": [],
+    "features": [
+      "op:*",
+      "op:+",
+      "show"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "24_unary_not",
+    "name": "unary_not",
+    "inputs": [],
+    "features": [
+      "not",
+      "show"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "25_logic_and_or",
+    "name": "logic_and_or",
+    "inputs": [],
+    "features": [
+      "and",
+      "or",
+      "show"
+    ],
+    "status": "parse_error"
+  },
+  {
+    "case_id": "26_eq_text",
+    "name": "eq_text",
+    "inputs": [],
+    "features": [
+      "op:==",
+      "show",
+      "type:Text"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "27_neq_int",
+    "name": "neq_int",
+    "inputs": [],
+    "features": [
+      "op:!=",
+      "show"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "28_ge_le",
+    "name": "ge_le",
+    "inputs": [],
+    "features": [
+      "op:<",
+      "op:<=",
+      "op:>",
+      "op:>=",
+      "show"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "29_div_float",
+    "name": "div_float",
+    "inputs": [],
+    "features": [
+      "op:/",
+      "show",
+      "type:Float"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "30_mix_float_int",
+    "name": "mix_float_int",
+    "inputs": [],
+    "features": [
+      "op:+",
+      "show",
+      "type:Float"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "31_fn_fact",
+    "name": "fn_fact",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:*",
+      "op:+",
+      "op:-",
+      "op:<",
+      "op:<=",
+      "op:>",
+      "return",
+      "show",
+      "type:Int",
+      "while"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "32_fn_call_chain",
+    "name": "fn_call_chain",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:+",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Int"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "33_fn_local_vars",
+    "name": "fn_local_vars",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:+",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Int"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "34_if_expr_cond",
+    "name": "if_expr_cond",
+    "inputs": [],
+    "features": [
+      "else",
+      "if",
+      "op:-",
+      "op:>",
+      "show",
+      "type:Int"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "35_while_compare_ne",
+    "name": "while_compare_ne",
+    "inputs": [],
+    "features": [
+      "op:!=",
+      "op:+",
+      "show",
+      "type:Int",
+      "while"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "36_top_expr_call",
+    "name": "top_expr_call",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Text"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "37_verify_expr",
+    "name": "verify_expr",
+    "inputs": [],
+    "features": [
+      "op:+",
+      "op:==",
+      "show",
+      "type:Int",
+      "verify"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "38_bool_assign",
+    "name": "bool_assign",
+    "inputs": [],
+    "features": [
+      "else",
+      "if",
+      "show",
+      "type:Bool"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "39_null_assign",
+    "name": "null_assign",
+    "inputs": [],
+    "features": [
+      "show",
+      "type:Null"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "40_while_bool",
+    "name": "while_bool",
+    "inputs": [],
+    "features": [
+      "op:+",
+      "op:<",
+      "show",
+      "type:Bool",
+      "type:Int",
+      "while"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "41_fn_bool",
+    "name": "fn_bool",
+    "inputs": [],
+    "features": [
+      "and",
+      "fn",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Bool"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "42_fn_float",
+    "name": "fn_float",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:+",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Float"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "43_fn_text",
+    "name": "fn_text",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:+",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Text"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "44_if_nested",
+    "name": "if_nested",
+    "inputs": [],
+    "features": [
+      "else",
+      "if",
+      "op:==",
+      "show",
+      "type:Int"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "45_while_empty_then_show",
+    "name": "while_empty_then_show",
+    "inputs": [],
+    "features": [
+      "op:<",
+      "show",
+      "type:Int",
+      "while"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "46_type_err_undef",
+    "name": "type_err_undef",
+    "inputs": [],
+    "features": [
+      "show"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "47_type_err_reassign_undef",
+    "name": "type_err_reassign_undef",
+    "inputs": [],
+    "features": [],
+    "status": "ok"
+  },
+  {
+    "case_id": "48_type_err_mismatch",
+    "name": "type_err_mismatch",
+    "inputs": [],
+    "features": [
+      "show",
+      "type:Int"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "49_type_err_text_int_plus",
+    "name": "type_err_text_int_plus",
+    "inputs": [],
+    "features": [
+      "op:+",
+      "show",
+      "type:Text"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "50_type_err_bool_int_plus",
+    "name": "type_err_bool_int_plus",
+    "inputs": [],
+    "features": [
+      "op:+",
+      "show",
+      "type:Bool"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "51_type_err_return_type",
+    "name": "type_err_return_type",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Int"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "52_type_err_call_arity",
+    "name": "type_err_call_arity",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Int"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "53_type_err_call_type",
+    "name": "type_err_call_type",
+    "inputs": [],
+    "features": [
+      "fn",
+      "op:-",
+      "op:>",
+      "return",
+      "show",
+      "type:Int"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "54_type_err_assign_float_to_int",
+    "name": "type_err_assign_float_to_int",
+    "inputs": [],
+    "features": [
+      "show",
+      "type:Int"
+    ],
+    "status": "ok"
+  },
+  {
+    "case_id": "55_type_err_compare_text_int",
+    "name": "type_err_compare_text_int",
+    "inputs": [],
+    "features": [
+      "op:<",
+      "show",
+      "type:Text"
+    ],
+    "status": "type_error"
+  },
+  {
+    "case_id": "56_parse_err_indent3",
+    "name": "parse_err_indent3",
+    "inputs": [],
+    "features": [
+      "if",
+      "show"
+    ],
+    "status": "lex_error"
+  },
+  {
+    "case_id": "57_parse_err_missing_colon",
+    "name": "parse_err_missing_colon",
+    "inputs": [],
+    "features": [
+      "if",
+      "show"
+    ],
+    "status": "parse_error"
+  },
+  {
+    "case_id": "58_parse_err_dedent",
+    "name": "parse_err_dedent",
+    "inputs": [],
+    "features": [
+      "if",
+      "show"
+    ],
+    "status": "lex_error"
+  },
+  {
+    "case_id": "59_lex_err_tab",
+    "name": "lex_err_tab",
+    "inputs": [],
+    "features": [
+      "if",
+      "show"
+    ],
+    "status": "lex_error"
+  },
+  {
+    "case_id": "60_lex_err_bad_char",
+    "name": "lex_err_bad_char",
+    "inputs": [],
+    "features": [
+      "show"
+    ],
+    "status": "lex_error"
+  }
+]

@@ -1,0 +1,7 @@
+🛠 fact(n: Int) -> Int:
+    acc: Int = 1
+    i: Int = 1
+    while i <= n:
+        acc = acc * i
+        i = i + 1
+    return acc

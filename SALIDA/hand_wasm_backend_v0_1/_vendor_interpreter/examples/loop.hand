@@ -1,0 +1,4 @@
+i: Int = 0
+while i < 2:
+    show i
+    i = i + 1

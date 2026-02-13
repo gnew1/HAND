@@ -1,0 +1,6 @@
+🛠 g(a: Int) -> Int:
+    if a == 0:
+        return 7
+    return 9
+show g(0)
+show g(1)

@@ -1,0 +1,3 @@
+🛠 inc(a: Int) -> Int:
+    return a + 1
+show inc(inc(1))
