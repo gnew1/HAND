@@ -1,3 +1,0 @@
-🛠 f() -> Int:
-    return true
-show f()

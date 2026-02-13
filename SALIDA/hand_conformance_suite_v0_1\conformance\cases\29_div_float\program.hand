@@ -1,2 +1,0 @@
-x: Float = 5.0
-show x / 2.0

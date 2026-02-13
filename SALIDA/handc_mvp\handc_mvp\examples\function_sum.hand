@@ -1,7 +1,0 @@
-program "Functions":
-    function sum(a, b):
-        return int(a) + int(b)
-
-    ask "a: " -> a
-    ask "b: " -> b
-    show sum(a, b)

@@ -1,2 +1,0 @@
-s: Text = "a"
-show s + 1

@@ -1,2 +1,0 @@
-🛠 is_zero(a: Int) -> Bool:
-    return a == 0

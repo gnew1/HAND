@@ -1,6 +1,0 @@
-x: Int = 3
-if x > 2:
-    show "big"
-else:
-    show "small"
-show x

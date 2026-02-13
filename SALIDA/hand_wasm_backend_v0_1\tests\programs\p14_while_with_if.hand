@@ -1,7 +1,0 @@
-i: Int = 0
-while i < 3:
-    if i == 1:
-        show "one"
-    else:
-        show i
-    i = i + 1

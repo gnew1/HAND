@@ -1,4 +1,0 @@
-if false:
-    show "T"
-else:
-    show "F"

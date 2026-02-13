@@ -1,3 +1,0 @@
-🛠 add(a: Int, b: Int) -> Int:
-    return a + b
-show add(2, 3)

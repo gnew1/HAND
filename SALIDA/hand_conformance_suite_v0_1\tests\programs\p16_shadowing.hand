@@ -1,5 +1,0 @@
-x: Int = 1
-🛠 f(x: Int) -> Int:
-    return x + 10
-show f(5)
-show x

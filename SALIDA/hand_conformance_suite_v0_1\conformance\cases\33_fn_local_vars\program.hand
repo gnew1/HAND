@@ -1,5 +1,0 @@
-🛠 f() -> Int:
-    x: Int = 2
-    x = x + 5
-    return x
-show f()

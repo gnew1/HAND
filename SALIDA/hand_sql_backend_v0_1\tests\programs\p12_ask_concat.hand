@@ -1,3 +1,0 @@
-a: Text = ask("a")
-b: Text = ask("b")
-show a + b

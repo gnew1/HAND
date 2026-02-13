@@ -1,5 +1,0 @@
-ok: Bool = true
-if ok:
-    show "y"
-else:
-    show "n"

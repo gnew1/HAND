@@ -1,0 +1,23 @@
+# Generated output directory
+SALIDA/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build and test artifacts
+_tmp_out/
+*.log

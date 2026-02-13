@@ -1,2 +1,0 @@
-b: Bool = true
-show b + 1

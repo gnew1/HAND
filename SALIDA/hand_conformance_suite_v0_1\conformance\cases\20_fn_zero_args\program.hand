@@ -1,3 +1,0 @@
-🛠 h() -> Text:
-    return "z"
-show h()

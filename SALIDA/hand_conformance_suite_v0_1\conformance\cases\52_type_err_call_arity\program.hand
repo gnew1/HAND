@@ -1,3 +1,0 @@
-🛠 f(a: Int) -> Int:
-    return a
-show f(1,2)

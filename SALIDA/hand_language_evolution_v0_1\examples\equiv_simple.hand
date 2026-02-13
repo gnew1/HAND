@@ -1,4 +1,0 @@
-x: Int = 1
-show x
-x = x + 2
-show x

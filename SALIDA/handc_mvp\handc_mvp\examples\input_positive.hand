@@ -1,6 +1,0 @@
-program "Positive?":
-    ask "Enter a number: " -> x
-    if int(x) > 0:
-        show "positive"
-    else:
-        show "zero-or-negative"

@@ -1,3 +1,0 @@
-🛠 both(a: Bool, b: Bool) -> Bool:
-    return a and b
-show both(true, false)

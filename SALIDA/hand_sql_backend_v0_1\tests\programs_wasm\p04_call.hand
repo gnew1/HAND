@@ -1,4 +1,0 @@
-🛠 inc(a: Int) -> Int:
-    return a + 1
-🛠 twice(a: Int) -> Int:
-    return inc(inc(a))

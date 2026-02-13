@@ -1,3 +1,0 @@
-x: Int = 5
-show x >= 5
-show x < 2

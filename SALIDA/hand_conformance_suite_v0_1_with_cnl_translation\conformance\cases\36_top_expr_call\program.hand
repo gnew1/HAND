@@ -1,3 +1,0 @@
-🛠 h() -> Text:
-    return "ok"
-show h()
