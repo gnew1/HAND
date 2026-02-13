@@ -1,0 +1,3 @@
+🛠 addf(a: Float, b: Float) -> Float:
+    return a + b
+show addf(1.5, 2.0)

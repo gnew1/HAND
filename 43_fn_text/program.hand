@@ -1,0 +1,3 @@
+🛠 greet(name: Text) -> Text:
+    return "hi " + name
+show greet("ana")

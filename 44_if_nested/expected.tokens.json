@@ -1,0 +1,402 @@
+[
+  {
+    "kind": "IDENT",
+    "value": "x",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 1,
+      "col": 1,
+      "end_col": 2
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 1,
+      "col": 2,
+      "end_col": 3
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Int",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 1,
+      "col": 4,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "EQ",
+    "value": "=",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 1,
+      "col": 8,
+      "end_col": 9
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "2",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 1,
+      "col": 10,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 1,
+      "col": 11,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "if",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 2,
+      "col": 1,
+      "end_col": 3
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "x",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 2,
+      "col": 4,
+      "end_col": 5
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "==",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 2,
+      "col": 6,
+      "end_col": 8
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "2",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 2,
+      "col": 9,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 2,
+      "col": 10,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 2,
+      "col": 11,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "INDENT",
+    "value": "",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 3,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "if",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 3,
+      "col": 5,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "true",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 3,
+      "col": 8,
+      "end_col": 12
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 3,
+      "col": 12,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 3,
+      "col": 13,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "INDENT",
+    "value": "",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 4,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 4,
+      "col": 9,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "7",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 4,
+      "col": 14,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 4,
+      "col": 15,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "DEDENT",
+    "value": "",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 5,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "else",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 5,
+      "col": 5,
+      "end_col": 9
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 5,
+      "col": 9,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 5,
+      "col": 10,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "INDENT",
+    "value": "",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 6,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 6,
+      "col": 9,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "8",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 6,
+      "col": 14,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 6,
+      "col": 15,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "DEDENT",
+    "value": "",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 7,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "DEDENT",
+    "value": "",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 7,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "else",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 7,
+      "col": 1,
+      "end_col": 5
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 7,
+      "col": 5,
+      "end_col": 6
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 7,
+      "col": 6,
+      "end_col": 6
+    }
+  },
+  {
+    "kind": "INDENT",
+    "value": "",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 8,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 8,
+      "col": 5,
+      "end_col": 9
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "0",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 8,
+      "col": 10,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 8,
+      "col": 11,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "DEDENT",
+    "value": "",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 8,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "EOF",
+    "value": "",
+    "span": {
+      "file": "44_if_nested.hand",
+      "line": 9,
+      "col": 1,
+      "end_col": 1
+    }
+  }
+]
