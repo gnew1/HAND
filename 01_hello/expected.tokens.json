@@ -1,0 +1,42 @@
+[
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "01_hello.hand",
+      "line": 1,
+      "col": 1,
+      "end_col": 5
+    }
+  },
+  {
+    "kind": "STRING",
+    "value": "\"hi\"",
+    "span": {
+      "file": "01_hello.hand",
+      "line": 1,
+      "col": 6,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "01_hello.hand",
+      "line": 1,
+      "col": 10,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "EOF",
+    "value": "",
+    "span": {
+      "file": "01_hello.hand",
+      "line": 2,
+      "col": 1,
+      "end_col": 1
+    }
+  }
+]

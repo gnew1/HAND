@@ -1,0 +1,153 @@
+{
+  "outputs": [
+    "6",
+    "40"
+  ],
+  "events": [
+    {
+      "step": 1,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "AssignStmt"
+      }
+    },
+    {
+      "step": 2,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 3,
+      "kind": "assign",
+      "detail": {
+        "name": "a",
+        "value": "10"
+      }
+    },
+    {
+      "step": 4,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "AssignStmt"
+      }
+    },
+    {
+      "step": 5,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "AssignStmt"
+      }
+    },
+    {
+      "step": 6,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 7,
+      "kind": "assign",
+      "detail": {
+        "name": "b",
+        "value": "4"
+      }
+    },
+    {
+      "step": 8,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "AssignStmt"
+      }
+    },
+    {
+      "step": 9,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 10,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Binary"
+      }
+    },
+    {
+      "step": 11,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Var"
+      }
+    },
+    {
+      "step": 12,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Var"
+      }
+    },
+    {
+      "step": 13,
+      "kind": "io",
+      "detail": {
+        "op": "show",
+        "value": "6"
+      }
+    },
+    {
+      "step": 14,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 15,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 16,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Binary"
+      }
+    },
+    {
+      "step": 17,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Var"
+      }
+    },
+    {
+      "step": 18,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Var"
+      }
+    },
+    {
+      "step": 19,
+      "kind": "io",
+      "detail": {
+        "op": "show",
+        "value": "40"
+      }
+    },
+    {
+      "step": 20,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    }
+  ],
+  "runtime_error": null
+}
