@@ -9,8 +9,7 @@ This directory contains example implementations and use cases for the HAND progr
 - `hello_world.md` - Your first HAND application
 
 ### Advanced Examples
-- `modular_design.md` - Building modular applications with HAND
-- `extensions.md` - Creating and using extensions
+(Advanced examples will be added as the framework develops)
 
 ## Running Examples
 

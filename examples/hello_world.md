@@ -94,4 +94,4 @@ application HelloWorld {
 
 - Implement this in your preferred language
 - Try the [Basic Example](./basic_example.md)
-- Explore [Modular Design](./modular_design.md)
+- Read the [Architecture Guide](../docs/architecture.md)

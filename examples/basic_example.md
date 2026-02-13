@@ -68,7 +68,7 @@ When properly implemented, you should have:
 ## Next Steps
 
 - Try implementing this pattern in your language of choice
-- Explore [Advanced Examples](./modular_design.md)
+- Try the [Hello World Example](./hello_world.md)
 - Read the [Architecture Guide](../docs/architecture.md)
 
 ## Notes
