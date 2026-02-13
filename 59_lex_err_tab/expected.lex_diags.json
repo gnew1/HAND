@@ -1,0 +1,12 @@
+[
+  {
+    "severity": "error",
+    "idref": "1🐛1",
+    "code": "HND-LEX-0002"
+  },
+  {
+    "severity": "error",
+    "idref": "1🐛2",
+    "code": "HND-LEX-0001"
+  }
+]
