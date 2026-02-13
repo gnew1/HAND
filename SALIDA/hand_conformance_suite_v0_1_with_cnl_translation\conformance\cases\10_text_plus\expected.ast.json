@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "value": {
+        "left": {
+          "kind": "Text",
+          "value": "\"a\""
+        },
+        "op": "+",
+        "right": {
+          "kind": "Text",
+          "value": "\"b\""
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+[
+  {
+    "kind": "EMOJI",
+    "value": "🛠",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 1,
+      "end_col": 2
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "addf",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 3,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "LPAREN",
+    "value": "(",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 7,
+      "end_col": 8
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "a",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 8,
+      "end_col": 9
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 9,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Float",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 11,
+      "end_col": 16
+    }
+  },
+  {
+    "kind": "COMMA",
+    "value": ",",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 16,
+      "end_col": 17
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "b",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 18,
+      "end_col": 19
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 19,
+      "end_col": 20
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Float",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 21,
+      "end_col": 26
+    }
+  },
+  {
+    "kind": "RPAREN",
+    "value": ")",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 26,
+      "end_col": 27
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "->",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 28,
+      "end_col": 30
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Float",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 31,
+      "end_col": 36
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 36,
+      "end_col": 37
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 1,
+      "col": 37,
+      "end_col": 37
+    }
+  },
+  {
+    "kind": "INDENT",
+    "value": "",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 2,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "return",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 2,
+      "col": 5,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "a",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 2,
+      "col": 12,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "+",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 2,
+      "col": 14,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "b",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 2,
+      "col": 16,
+      "end_col": 17
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 2,
+      "col": 17,
+      "end_col": 17
+    }
+  },
+  {
+    "kind": "DEDENT",
+    "value": "",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 3,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 3,
+      "col": 1,
+      "end_col": 5
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "addf",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 3,
+      "col": 6,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "LPAREN",
+    "value": "(",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 3,
+      "col": 10,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "1.5",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 3,
+      "col": 11,
+      "end_col": 14
+    }
+  },
+  {
+    "kind": "COMMA",
+    "value": ",",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 3,
+      "col": 14,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "2.0",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 3,
+      "col": 16,
+      "end_col": 19
+    }
+  },
+  {
+    "kind": "RPAREN",
+    "value": ")",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 3,
+      "col": 19,
+      "end_col": 20
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 3,
+      "col": 20,
+      "end_col": 20
+    }
+  },
+  {
+    "kind": "EOF",
+    "value": "",
+    "span": {
+      "file": "42_fn_float.hand",
+      "line": 4,
+      "col": 1,
+      "end_col": 1
+    }
+  }
+]

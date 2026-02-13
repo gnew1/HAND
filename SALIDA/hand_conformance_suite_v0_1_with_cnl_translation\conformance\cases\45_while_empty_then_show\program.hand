@@ -1,0 +1,4 @@
+i: Int = 0
+while i < 0:
+    show 9
+show 1

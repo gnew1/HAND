@@ -1,0 +1,76 @@
+{
+  "ir_version": "0.1.0",
+  "origin": {
+    "actor": "🤖",
+    "ref": "[Lowering][🧬][IR0].module"
+  },
+  "module": {
+    "name": "if_true",
+    "semver": "0.1.0",
+    "functions": [],
+    "toplevel": [
+      {
+        "kind": "if",
+        "cond": {
+          "kind": "lit",
+          "value": true,
+          "type": {
+            "kind": "Bool"
+          }
+        },
+        "then": [
+          {
+            "kind": "show",
+            "value": {
+              "kind": "lit",
+              "value": "\"T\"",
+              "type": {
+                "kind": "Text"
+              }
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][📤][N2].show"
+            },
+            "effects": [
+              "io.show"
+            ],
+            "capabilities": [
+              "io"
+            ]
+          }
+        ],
+        "else": [
+          {
+            "kind": "show",
+            "value": {
+              "kind": "lit",
+              "value": "\"F\"",
+              "type": {
+                "kind": "Text"
+              }
+            },
+            "origin": {
+              "actor": "👤",
+              "ref": "[AST][📤][N3].show"
+            },
+            "effects": [
+              "io.show"
+            ],
+            "capabilities": [
+              "io"
+            ]
+          }
+        ],
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][🧭][N1].if"
+        },
+        "effects": [],
+        "capabilities": []
+      }
+    ],
+    "types": [],
+    "capabilities": []
+  }
+}

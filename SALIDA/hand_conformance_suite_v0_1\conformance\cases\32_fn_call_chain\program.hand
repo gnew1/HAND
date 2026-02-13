@@ -1,0 +1,5 @@
+🛠 a() -> Int:
+    return 1
+🛠 b() -> Int:
+    return a() + 1
+show b()

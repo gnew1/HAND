@@ -1,0 +1,66 @@
+{
+  "ir_version": "0.1.0",
+  "origin": {
+    "actor": "🤖",
+    "ref": "[Lowering][🧬][IR0].module"
+  },
+  "module": {
+    "name": "div_float",
+    "semver": "0.1.0",
+    "functions": [],
+    "toplevel": [
+      {
+        "kind": "assign",
+        "name": "x",
+        "declared_type": {
+          "kind": "Float"
+        },
+        "value": {
+          "kind": "lit",
+          "value": 5.0,
+          "type": {
+            "kind": "Float"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📝][N1].assign"
+        },
+        "effects": [],
+        "capabilities": []
+      },
+      {
+        "kind": "show",
+        "value": {
+          "kind": "binary",
+          "op": "/",
+          "left": {
+            "kind": "var",
+            "name": "x"
+          },
+          "right": {
+            "kind": "lit",
+            "value": 2.0,
+            "type": {
+              "kind": "Float"
+            }
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📤][N2].show"
+        },
+        "effects": [
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ]
+      }
+    ],
+    "types": [],
+    "capabilities": [
+      "io"
+    ]
+  }
+}

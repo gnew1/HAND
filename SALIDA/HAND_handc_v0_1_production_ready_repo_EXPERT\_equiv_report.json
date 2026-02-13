@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.1",
+  "observational_equivalence": "Ω + Σ (top-level store) for executable subset",
+  "targets": [
+    "python"
+  ],
+  "reports": [
+    {
+      "program": "equiv_simple.hand",
+      "status": "ok",
+      "features": [
+        "op:+",
+        "show",
+        "type:Int"
+      ],
+      "ref": {
+        "observed": {
+          "Ω": [
+            "1",
+            "3"
+          ],
+          "Σ": {
+            "x": 3
+          }
+        },
+        "runtime_error": null,
+        "ref_status": null
+      },
+      "results": {
+        "python": {
+          "status": "pass",
+          "observed": {
+            "Ω": [
+              "1",
+              "3"
+            ],
+            "Σ": {
+              "x": 3
+            }
+          },
+          "expected": {
+            "Ω": [
+              "1",
+              "3"
+            ],
+            "Σ": {
+              "x": 3
+            }
+          },
+          "mismatch": null
+        }
+      }
+    }
+  ],
+  "matrix": {
+    "op:+": {
+      "python": "pass"
+    },
+    "show": {
+      "python": "pass"
+    },
+    "type:Int": {
+      "python": "pass"
+    }
+  }
+}

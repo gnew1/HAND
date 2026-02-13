@@ -1,0 +1,50 @@
+{
+  "items": [
+    {
+      "name": "a",
+      "declared_type": {
+        "name": "Int"
+      },
+      "value": {
+        "kind": "Int",
+        "value": 2
+      }
+    },
+    {
+      "name": "b",
+      "declared_type": {
+        "name": "Int"
+      },
+      "value": {
+        "kind": "Int",
+        "value": 3
+      }
+    },
+    {
+      "expr": {
+        "left": {
+          "expr": {
+            "left": {
+              "name": "a"
+            },
+            "op": "+",
+            "right": {
+              "name": "b"
+            }
+          }
+        },
+        "op": "==",
+        "right": {
+          "kind": "Int",
+          "value": 5
+        }
+      }
+    },
+    {
+      "value": {
+        "kind": "Text",
+        "value": "\"ok\""
+      }
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+[
+  {
+    "kind": "EMOJI",
+    "value": "🛠",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 1,
+      "col": 1,
+      "end_col": 2
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "fact",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 1,
+      "col": 3,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "LPAREN",
+    "value": "(",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 1,
+      "col": 7,
+      "end_col": 8
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "n",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 1,
+      "col": 8,
+      "end_col": 9
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 1,
+      "col": 9,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Int",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 1,
+      "col": 11,
+      "end_col": 14
+    }
+  },
+  {
+    "kind": "RPAREN",
+    "value": ")",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 1,
+      "col": 14,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "->",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 1,
+      "col": 16,
+      "end_col": 18
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Int",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 1,
+      "col": 19,
+      "end_col": 22
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 1,
+      "col": 22,
+      "end_col": 23
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 1,
+      "col": 23,
+      "end_col": 23
+    }
+  },
+  {
+    "kind": "INDENT",
+    "value": "",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 2,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "i",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 2,
+      "col": 5,
+      "end_col": 6
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 2,
+      "col": 6,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Int",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 2,
+      "col": 8,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "EQ",
+    "value": "=",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 2,
+      "col": 12,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "1",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 2,
+      "col": 14,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 2,
+      "col": 15,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "p",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 3,
+      "col": 5,
+      "end_col": 6
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 3,
+      "col": 6,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Int",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 3,
+      "col": 8,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "EQ",
+    "value": "=",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 3,
+      "col": 12,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "1",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 3,
+      "col": 14,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 3,
+      "col": 15,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "while",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 4,
+      "col": 5,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "i",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 4,
+      "col": 11,
+      "end_col": 12
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "<=",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 4,
+      "col": 13,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "n",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 4,
+      "col": 16,
+      "end_col": 17
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 4,
+      "col": 17,
+      "end_col": 18
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 4,
+      "col": 18,
+      "end_col": 18
+    }
+  },
+  {
+    "kind": "INDENT",
+    "value": "",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 5,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "p",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 5,
+      "col": 9,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "EQ",
+    "value": "=",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 5,
+      "col": 11,
+      "end_col": 12
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "p",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 5,
+      "col": 13,
+      "end_col": 14
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "*",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 5,
+      "col": 15,
+      "end_col": 16
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "i",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 5,
+      "col": 17,
+      "end_col": 18
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 5,
+      "col": 18,
+      "end_col": 18
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "i",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 6,
+      "col": 9,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "EQ",
+    "value": "=",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 6,
+      "col": 11,
+      "end_col": 12
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "i",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 6,
+      "col": 13,
+      "end_col": 14
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "+",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 6,
+      "col": 15,
+      "end_col": 16
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "1",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 6,
+      "col": 17,
+      "end_col": 18
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 6,
+      "col": 18,
+      "end_col": 18
+    }
+  },
+  {
+    "kind": "DEDENT",
+    "value": "",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 7,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "return",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 7,
+      "col": 5,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "p",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 7,
+      "col": 12,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 7,
+      "col": 13,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "DEDENT",
+    "value": "",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 8,
+      "col": 1,
+      "end_col": 1
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 8,
+      "col": 1,
+      "end_col": 5
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "fact",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 8,
+      "col": 6,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "LPAREN",
+    "value": "(",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 8,
+      "col": 10,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "5",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 8,
+      "col": 11,
+      "end_col": 12
+    }
+  },
+  {
+    "kind": "RPAREN",
+    "value": ")",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 8,
+      "col": 12,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 8,
+      "col": 13,
+      "end_col": 13
+    }
+  },
+  {
+    "kind": "EOF",
+    "value": "",
+    "span": {
+      "file": "31_fn_fact.hand",
+      "line": 9,
+      "col": 1,
+      "end_col": 1
+    }
+  }
+]

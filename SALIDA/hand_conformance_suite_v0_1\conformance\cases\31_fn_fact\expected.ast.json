@@ -1,0 +1,96 @@
+{
+  "items": [
+    {
+      "name": "fact",
+      "params": [
+        {
+          "name": "n",
+          "type": {
+            "name": "Int"
+          }
+        }
+      ],
+      "return_type": {
+        "name": "Int"
+      },
+      "body": [
+        {
+          "name": "i",
+          "declared_type": {
+            "name": "Int"
+          },
+          "value": {
+            "kind": "Int",
+            "value": 1
+          }
+        },
+        {
+          "name": "p",
+          "declared_type": {
+            "name": "Int"
+          },
+          "value": {
+            "kind": "Int",
+            "value": 1
+          }
+        },
+        {
+          "cond": {
+            "left": {
+              "name": "i"
+            },
+            "op": "<=",
+            "right": {
+              "name": "n"
+            }
+          },
+          "body": [
+            {
+              "name": "p",
+              "declared_type": null,
+              "value": {
+                "left": {
+                  "name": "p"
+                },
+                "op": "*",
+                "right": {
+                  "name": "i"
+                }
+              }
+            },
+            {
+              "name": "i",
+              "declared_type": null,
+              "value": {
+                "left": {
+                  "name": "i"
+                },
+                "op": "+",
+                "right": {
+                  "kind": "Int",
+                  "value": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "value": {
+            "name": "p"
+          }
+        }
+      ]
+    },
+    {
+      "value": {
+        "callee": "fact",
+        "args": [
+          {
+            "kind": "Int",
+            "value": 5
+          }
+        ]
+      }
+    }
+  ]
+}

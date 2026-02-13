@@ -1,0 +1,1 @@
+recursive-include src/hand_tree_translator/handlib/data *.yaml

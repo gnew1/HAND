@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "value": {
+        "kind": "Bool",
+        "value": true
+      }
+    },
+    {
+      "value": {
+        "kind": "Bool",
+        "value": false
+      }
+    },
+    {
+      "value": {
+        "kind": "Null",
+        "value": null
+      }
+    }
+  ]
+}

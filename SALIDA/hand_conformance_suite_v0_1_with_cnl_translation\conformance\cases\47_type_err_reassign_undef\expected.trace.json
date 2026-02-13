@@ -1,0 +1,35 @@
+{
+  "outputs": [],
+  "events": [
+    {
+      "step": 1,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "AssignStmt"
+      }
+    },
+    {
+      "step": 2,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 3,
+      "kind": "assign",
+      "detail": {
+        "name": "x",
+        "value": "1"
+      }
+    },
+    {
+      "step": 4,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "AssignStmt"
+      }
+    }
+  ],
+  "runtime_error": null
+}

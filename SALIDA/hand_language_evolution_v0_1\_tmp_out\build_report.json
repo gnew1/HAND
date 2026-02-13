@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1",
+  "status": "ok",
+  "input": {
+    "path": "/mnt/data/hand_equiv_oracle_v0_1/examples/audit_demo.hand"
+  },
+  "artifacts": {
+    "target": "python",
+    "out_dir": "/mnt/data/hand_equiv_oracle_v0_1/_tmp_out",
+    "outputs": [
+      "/mnt/data/hand_equiv_oracle_v0_1/_tmp_out/main.py"
+    ],
+    "emitted_ir": null,
+    "emitted_ast": null
+  },
+  "capabilities": {
+    "supervision_level": 2,
+    "declared": [
+      "io.read",
+      "io.write"
+    ],
+    "required": [],
+    "missing": [],
+    "approvals_needed": []
+  },
+  "diagnostics": [],
+  "degradations": []
+}

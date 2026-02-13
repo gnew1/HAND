@@ -1,0 +1,7 @@
+🛠 sign(a: Int) -> Text:
+    if a < 0:
+        return "neg"
+    else:
+        return "pos"
+show sign(1)
+show sign(-1)

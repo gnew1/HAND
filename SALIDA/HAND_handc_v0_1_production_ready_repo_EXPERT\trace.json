@@ -1,0 +1,132 @@
+[
+  {
+    "step": 1,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 2,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Literal"
+    }
+  },
+  {
+    "step": 3,
+    "kind": "assign",
+    "detail": {
+      "name": "x",
+      "value": "1"
+    }
+  },
+  {
+    "step": 4,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 5,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "ShowStmt"
+    }
+  },
+  {
+    "step": 6,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Var"
+    }
+  },
+  {
+    "step": 7,
+    "kind": "io",
+    "detail": {
+      "op": "show",
+      "value": "1"
+    }
+  },
+  {
+    "step": 8,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "ShowStmt"
+    }
+  },
+  {
+    "step": 9,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 10,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Binary"
+    }
+  },
+  {
+    "step": 11,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Var"
+    }
+  },
+  {
+    "step": 12,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Literal"
+    }
+  },
+  {
+    "step": 13,
+    "kind": "assign",
+    "detail": {
+      "name": "x",
+      "value": "3"
+    }
+  },
+  {
+    "step": 14,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 15,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "ShowStmt"
+    }
+  },
+  {
+    "step": 16,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Var"
+    }
+  },
+  {
+    "step": 17,
+    "kind": "io",
+    "detail": {
+      "op": "show",
+      "value": "3"
+    }
+  },
+  {
+    "step": 18,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "ShowStmt"
+    }
+  }
+]

@@ -1,0 +1,94 @@
+{
+  "outputs": [
+    "y"
+  ],
+  "events": [
+    {
+      "step": 1,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "AssignStmt"
+      }
+    },
+    {
+      "step": 2,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 3,
+      "kind": "assign",
+      "detail": {
+        "name": "ok",
+        "value": "true"
+      }
+    },
+    {
+      "step": 4,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "AssignStmt"
+      }
+    },
+    {
+      "step": 5,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "IfStmt"
+      }
+    },
+    {
+      "step": 6,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Var"
+      }
+    },
+    {
+      "step": 7,
+      "kind": "branch",
+      "detail": {
+        "cond": true
+      }
+    },
+    {
+      "step": 8,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 9,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 10,
+      "kind": "io",
+      "detail": {
+        "op": "show",
+        "value": "y"
+      }
+    },
+    {
+      "step": 11,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 12,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "IfStmt"
+      }
+    }
+  ],
+  "runtime_error": null
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "kind": "IDENT",
+    "value": "s",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 1,
+      "col": 1,
+      "end_col": 2
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 1,
+      "col": 2,
+      "end_col": 3
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Text",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 1,
+      "col": 4,
+      "end_col": 8
+    }
+  },
+  {
+    "kind": "EQ",
+    "value": "=",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 1,
+      "col": 9,
+      "end_col": 10
+    }
+  },
+  {
+    "kind": "STRING",
+    "value": "\"a\"",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 1,
+      "col": 11,
+      "end_col": 14
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 1,
+      "col": 14,
+      "end_col": 14
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 2,
+      "col": 1,
+      "end_col": 5
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "s",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 2,
+      "col": 6,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "OP",
+    "value": "+",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 2,
+      "col": 8,
+      "end_col": 9
+    }
+  },
+  {
+    "kind": "NUMBER",
+    "value": "1",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 2,
+      "col": 10,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 2,
+      "col": 11,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "EOF",
+    "value": "",
+    "span": {
+      "file": "49_type_err_text_int_plus.hand",
+      "line": 3,
+      "col": 1,
+      "end_col": 1
+    }
+  }
+]

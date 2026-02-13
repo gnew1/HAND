@@ -1,0 +1,12 @@
+[
+  {
+    "severity": "error",
+    "idref": "4🐛1",
+    "code": "HND-TC-1302"
+  },
+  {
+    "severity": "error",
+    "idref": "4🐛2",
+    "code": "HND-TC-0300"
+  }
+]

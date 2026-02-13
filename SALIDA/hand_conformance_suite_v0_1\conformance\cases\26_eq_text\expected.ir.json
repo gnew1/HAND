@@ -1,0 +1,66 @@
+{
+  "ir_version": "0.1.0",
+  "origin": {
+    "actor": "🤖",
+    "ref": "[Lowering][🧬][IR0].module"
+  },
+  "module": {
+    "name": "eq_text",
+    "semver": "0.1.0",
+    "functions": [],
+    "toplevel": [
+      {
+        "kind": "assign",
+        "name": "t",
+        "declared_type": {
+          "kind": "Text"
+        },
+        "value": {
+          "kind": "lit",
+          "value": "\"a\"",
+          "type": {
+            "kind": "Text"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📝][N1].assign"
+        },
+        "effects": [],
+        "capabilities": []
+      },
+      {
+        "kind": "show",
+        "value": {
+          "kind": "binary",
+          "op": "==",
+          "left": {
+            "kind": "var",
+            "name": "t"
+          },
+          "right": {
+            "kind": "lit",
+            "value": "\"a\"",
+            "type": {
+              "kind": "Text"
+            }
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📤][N2].show"
+        },
+        "effects": [
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ]
+      }
+    ],
+    "types": [],
+    "capabilities": [
+      "io"
+    ]
+  }
+}

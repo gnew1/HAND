@@ -1,0 +1,78 @@
+{
+  "ir_version": "0.1.0",
+  "origin": {
+    "actor": "🤖",
+    "ref": "[Lowering][🧬][IR0].module"
+  },
+  "module": {
+    "name": "bools_null",
+    "semver": "0.1.0",
+    "functions": [],
+    "toplevel": [
+      {
+        "kind": "show",
+        "value": {
+          "kind": "lit",
+          "value": true,
+          "type": {
+            "kind": "Bool"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📤][N1].show"
+        },
+        "effects": [
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ]
+      },
+      {
+        "kind": "show",
+        "value": {
+          "kind": "lit",
+          "value": false,
+          "type": {
+            "kind": "Bool"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📤][N2].show"
+        },
+        "effects": [
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ]
+      },
+      {
+        "kind": "show",
+        "value": {
+          "kind": "lit",
+          "value": null,
+          "type": {
+            "kind": "Null"
+          }
+        },
+        "origin": {
+          "actor": "👤",
+          "ref": "[AST][📤][N3].show"
+        },
+        "effects": [
+          "io.show"
+        ],
+        "capabilities": [
+          "io"
+        ]
+      }
+    ],
+    "types": [],
+    "capabilities": [
+      "io"
+    ]
+  }
+}

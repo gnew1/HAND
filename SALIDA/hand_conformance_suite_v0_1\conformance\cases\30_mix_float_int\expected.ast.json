@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "name": "x",
+      "declared_type": {
+        "name": "Float"
+      },
+      "value": {
+        "kind": "Float",
+        "value": 2.0
+      }
+    },
+    {
+      "value": {
+        "left": {
+          "name": "x"
+        },
+        "op": "+",
+        "right": {
+          "kind": "Float",
+          "value": 1.0
+        }
+      }
+    }
+  ]
+}

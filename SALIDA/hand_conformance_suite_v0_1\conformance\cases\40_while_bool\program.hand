@@ -1,0 +1,6 @@
+ok: Bool = true
+n: Int = 0
+while ok:
+    show n
+    n = n + 1
+    ok = n < 2

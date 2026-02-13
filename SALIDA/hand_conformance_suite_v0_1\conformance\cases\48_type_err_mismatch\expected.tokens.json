@@ -1,0 +1,102 @@
+[
+  {
+    "kind": "IDENT",
+    "value": "x",
+    "span": {
+      "file": "48_type_err_mismatch.hand",
+      "line": 1,
+      "col": 1,
+      "end_col": 2
+    }
+  },
+  {
+    "kind": "COLON",
+    "value": ":",
+    "span": {
+      "file": "48_type_err_mismatch.hand",
+      "line": 1,
+      "col": 2,
+      "end_col": 3
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "Int",
+    "span": {
+      "file": "48_type_err_mismatch.hand",
+      "line": 1,
+      "col": 4,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "EQ",
+    "value": "=",
+    "span": {
+      "file": "48_type_err_mismatch.hand",
+      "line": 1,
+      "col": 8,
+      "end_col": 9
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "true",
+    "span": {
+      "file": "48_type_err_mismatch.hand",
+      "line": 1,
+      "col": 10,
+      "end_col": 14
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "48_type_err_mismatch.hand",
+      "line": 1,
+      "col": 14,
+      "end_col": 14
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "48_type_err_mismatch.hand",
+      "line": 2,
+      "col": 1,
+      "end_col": 5
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "x",
+    "span": {
+      "file": "48_type_err_mismatch.hand",
+      "line": 2,
+      "col": 6,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "48_type_err_mismatch.hand",
+      "line": 2,
+      "col": 7,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "EOF",
+    "value": "",
+    "span": {
+      "file": "48_type_err_mismatch.hand",
+      "line": 3,
+      "col": 1,
+      "end_col": 1
+    }
+  }
+]

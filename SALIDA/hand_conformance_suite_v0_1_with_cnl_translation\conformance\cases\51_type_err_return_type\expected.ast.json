@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "name": "f",
+      "params": [],
+      "return_type": {
+        "name": "Int"
+      },
+      "body": [
+        {
+          "value": {
+            "kind": "Bool",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "value": {
+        "callee": "f",
+        "args": []
+      }
+    }
+  ]
+}

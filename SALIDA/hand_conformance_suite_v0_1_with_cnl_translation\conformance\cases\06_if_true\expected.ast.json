@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "cond": {
+        "kind": "Bool",
+        "value": true
+      },
+      "then_body": [
+        {
+          "value": {
+            "kind": "Text",
+            "value": "\"T\""
+          }
+        }
+      ],
+      "else_body": [
+        {
+          "value": {
+            "kind": "Text",
+            "value": "\"F\""
+          }
+        }
+      ]
+    }
+  ]
+}

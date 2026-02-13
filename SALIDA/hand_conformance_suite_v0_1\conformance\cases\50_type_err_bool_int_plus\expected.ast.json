@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "name": "b",
+      "declared_type": {
+        "name": "Bool"
+      },
+      "value": {
+        "kind": "Bool",
+        "value": true
+      }
+    },
+    {
+      "value": {
+        "left": {
+          "name": "b"
+        },
+        "op": "+",
+        "right": {
+          "kind": "Int",
+          "value": 1
+        }
+      }
+    }
+  ]
+}

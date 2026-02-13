@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "name": "add",
+      "params": [
+        {
+          "name": "a",
+          "type": {
+            "name": "Int"
+          }
+        },
+        {
+          "name": "b",
+          "type": {
+            "name": "Int"
+          }
+        }
+      ],
+      "return_type": {
+        "name": "Int"
+      },
+      "body": [
+        {
+          "value": {
+            "left": {
+              "name": "a"
+            },
+            "op": "+",
+            "right": {
+              "name": "b"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "value": {
+        "callee": "add",
+        "args": [
+          {
+            "kind": "Int",
+            "value": 2
+          },
+          {
+            "kind": "Int",
+            "value": 3
+          }
+        ]
+      }
+    }
+  ]
+}

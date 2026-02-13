@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "name": "ok",
+      "declared_type": {
+        "name": "Bool"
+      },
+      "value": {
+        "kind": "Bool",
+        "value": true
+      }
+    },
+    {
+      "cond": {
+        "name": "ok"
+      },
+      "then_body": [
+        {
+          "value": {
+            "kind": "Text",
+            "value": "\"y\""
+          }
+        }
+      ],
+      "else_body": [
+        {
+          "value": {
+            "kind": "Text",
+            "value": "\"n\""
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "46_type_err_undef.hand",
+      "line": 1,
+      "col": 1,
+      "end_col": 5
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "x",
+    "span": {
+      "file": "46_type_err_undef.hand",
+      "line": 1,
+      "col": 6,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "46_type_err_undef.hand",
+      "line": 1,
+      "col": 7,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "EOF",
+    "value": "",
+    "span": {
+      "file": "46_type_err_undef.hand",
+      "line": 2,
+      "col": 1,
+      "end_col": 1
+    }
+  }
+]

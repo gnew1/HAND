@@ -1,0 +1,73 @@
+{
+  "items": [
+    {
+      "name": "sign",
+      "params": [
+        {
+          "name": "a",
+          "type": {
+            "name": "Int"
+          }
+        }
+      ],
+      "return_type": {
+        "name": "Text"
+      },
+      "body": [
+        {
+          "cond": {
+            "left": {
+              "name": "a"
+            },
+            "op": "<",
+            "right": {
+              "kind": "Int",
+              "value": 0
+            }
+          },
+          "then_body": [
+            {
+              "value": {
+                "kind": "Text",
+                "value": "\"neg\""
+              }
+            }
+          ],
+          "else_body": [
+            {
+              "value": {
+                "kind": "Text",
+                "value": "\"pos\""
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "value": {
+        "callee": "sign",
+        "args": [
+          {
+            "kind": "Int",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "value": {
+        "callee": "sign",
+        "args": [
+          {
+            "op": "-",
+            "expr": {
+              "kind": "Int",
+              "value": 1
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

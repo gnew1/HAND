@@ -1,0 +1,102 @@
+[
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "25_logic_and_or.hand",
+      "line": 1,
+      "col": 1,
+      "end_col": 5
+    }
+  },
+  {
+    "kind": "LPAREN",
+    "value": "(",
+    "span": {
+      "file": "25_logic_and_or.hand",
+      "line": 1,
+      "col": 6,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "true",
+    "span": {
+      "file": "25_logic_and_or.hand",
+      "line": 1,
+      "col": 7,
+      "end_col": 11
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "and",
+    "span": {
+      "file": "25_logic_and_or.hand",
+      "line": 1,
+      "col": 12,
+      "end_col": 15
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "false",
+    "span": {
+      "file": "25_logic_and_or.hand",
+      "line": 1,
+      "col": 16,
+      "end_col": 21
+    }
+  },
+  {
+    "kind": "RPAREN",
+    "value": ")",
+    "span": {
+      "file": "25_logic_and_or.hand",
+      "line": 1,
+      "col": 21,
+      "end_col": 22
+    }
+  },
+  {
+    "kind": "IDENT",
+    "value": "or",
+    "span": {
+      "file": "25_logic_and_or.hand",
+      "line": 1,
+      "col": 23,
+      "end_col": 25
+    }
+  },
+  {
+    "kind": "KEYWORD",
+    "value": "true",
+    "span": {
+      "file": "25_logic_and_or.hand",
+      "line": 1,
+      "col": 26,
+      "end_col": 30
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "25_logic_and_or.hand",
+      "line": 1,
+      "col": 30,
+      "end_col": 30
+    }
+  },
+  {
+    "kind": "EOF",
+    "value": "",
+    "span": {
+      "file": "25_logic_and_or.hand",
+      "line": 2,
+      "col": 1,
+      "end_col": 1
+    }
+  }
+]

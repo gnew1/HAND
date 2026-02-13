@@ -1,0 +1,32 @@
+[
+  {
+    "kind": "KEYWORD",
+    "value": "show",
+    "span": {
+      "file": "60_lex_err_bad_char.hand",
+      "line": 1,
+      "col": 1,
+      "end_col": 5
+    }
+  },
+  {
+    "kind": "NEWLINE",
+    "value": "\n",
+    "span": {
+      "file": "60_lex_err_bad_char.hand",
+      "line": 1,
+      "col": 7,
+      "end_col": 7
+    }
+  },
+  {
+    "kind": "EOF",
+    "value": "",
+    "span": {
+      "file": "60_lex_err_bad_char.hand",
+      "line": 2,
+      "col": 1,
+      "end_col": 1
+    }
+  }
+]

@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "name": "a",
+      "declared_type": {
+        "name": "Int"
+      },
+      "value": {
+        "kind": "Int",
+        "value": 10
+      }
+    },
+    {
+      "name": "b",
+      "declared_type": {
+        "name": "Int"
+      },
+      "value": {
+        "kind": "Int",
+        "value": 4
+      }
+    },
+    {
+      "value": {
+        "left": {
+          "name": "a"
+        },
+        "op": "-",
+        "right": {
+          "name": "b"
+        }
+      }
+    },
+    {
+      "value": {
+        "left": {
+          "name": "a"
+        },
+        "op": "*",
+        "right": {
+          "name": "b"
+        }
+      }
+    }
+  ]
+}

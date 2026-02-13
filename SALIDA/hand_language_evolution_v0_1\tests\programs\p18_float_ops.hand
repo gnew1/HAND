@@ -1,0 +1,2 @@
+x: Float = 2.5
+show x + 1.5

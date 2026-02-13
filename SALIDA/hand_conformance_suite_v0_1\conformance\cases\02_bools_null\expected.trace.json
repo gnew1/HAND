@@ -1,0 +1,97 @@
+{
+  "outputs": [
+    "true",
+    "false",
+    "null"
+  ],
+  "events": [
+    {
+      "step": 1,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 2,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 3,
+      "kind": "io",
+      "detail": {
+        "op": "show",
+        "value": "true"
+      }
+    },
+    {
+      "step": 4,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 5,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 6,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 7,
+      "kind": "io",
+      "detail": {
+        "op": "show",
+        "value": "false"
+      }
+    },
+    {
+      "step": 8,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 9,
+      "kind": "enter_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    },
+    {
+      "step": 10,
+      "kind": "eval_expr",
+      "detail": {
+        "expr": "Literal"
+      }
+    },
+    {
+      "step": 11,
+      "kind": "io",
+      "detail": {
+        "op": "show",
+        "value": "null"
+      }
+    },
+    {
+      "step": 12,
+      "kind": "exit_stmt",
+      "detail": {
+        "stmt": "ShowStmt"
+      }
+    }
+  ],
+  "runtime_error": null
+}

@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "name": "x",
+      "declared_type": null,
+      "value": {
+        "kind": "Int",
+        "value": 1
+      }
+    }
+  ]
+}
