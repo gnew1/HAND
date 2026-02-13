@@ -8,6 +8,11 @@ Reconstruye un árbol de archivos/carpetas a partir de un PROGRAMA.txt
 generado por exporta_programas.py (formato con BEGIN_FILE, CONTENT_START,
 fence ```text, CONTENT_END, END_FILE).
 
+Soluciona el bug típico de separadores:
+- Si PROGRAMA.txt contiene rutas Windows con "\" y reconstruyes en Linux/macOS,
+  "\" no es separador y se creaban archivos con el nombre literal "src\utils\a.py".
+- Este script normaliza rutas: "\" y "/" -> "/" antes de crear Path.
+
 Uso:
   python reconstruye_repo.py --in PROGRAMA.txt --out ./SALIDA
 
@@ -45,13 +50,11 @@ def make_writable(path: Path):
     try:
         if not path.exists():
             return
-        # 0o666 para archivo, 0o777 para dir (aprox) manteniendo execute en dir
         if path.is_dir():
             os.chmod(path, 0o777)
         else:
             os.chmod(path, 0o666)
     except Exception:
-        # no romper por esto
         pass
 
 
@@ -67,26 +70,21 @@ def atomic_write_text(dst: Path, text: str, retries: int = 3, sleep_s: float = 0
     last_err = None
     for i in range(retries):
         try:
-            # si existe temp, intentar borrarlo
             if tmp.exists():
                 make_writable(tmp)
                 tmp.unlink(missing_ok=True)
 
-            # escribir temp
             with open(tmp, "w", encoding="utf-8", newline="") as f:
                 f.write(text)
 
-            # si destino existe, hacerlo writable antes de reemplazar
             if dst.exists():
                 make_writable(dst)
 
-            # replace es atómico en la mayoría de plataformas
             os.replace(tmp, dst)
             return
 
         except PermissionError as e:
             last_err = e
-            # intentar desbloquear parent/dst/tmp y reintentar
             make_writable(parent)
             make_writable(dst)
             make_writable(tmp)
@@ -94,7 +92,6 @@ def atomic_write_text(dst: Path, text: str, retries: int = 3, sleep_s: float = 0
 
         except OSError as e:
             last_err = e
-            # a veces hay locks temporales (AV, indexadores)
             make_writable(parent)
             make_writable(dst)
             make_writable(tmp)
@@ -104,7 +101,6 @@ def atomic_write_text(dst: Path, text: str, retries: int = 3, sleep_s: float = 0
             last_err = e
             break
 
-    # si no pudo, intentar limpiar temp
     try:
         if tmp.exists():
             make_writable(tmp)
@@ -117,7 +113,7 @@ def atomic_write_text(dst: Path, text: str, retries: int = 3, sleep_s: float = 0
 
 def parse_programa_txt(lines):
     """
-    Genera tuplas (rel_path:str, content:str).
+    Genera tuplas (rel_path:str, content:str, note:str|None).
     Espera el formato:
       BEGIN_FILE: path
       ...
@@ -137,32 +133,30 @@ def parse_programa_txt(lines):
         line = lines[i].rstrip("\n")
         if line.startswith(BEGIN_PREFIX):
             rel_path = line[len(BEGIN_PREFIX):].strip()
-            # avanzar hasta CONTENT_START
+
             i += 1
             while i < n and lines[i].rstrip("\n") != CONTENT_START:
                 i += 1
             if i >= n:
-                # bloque roto
                 yield rel_path, None, "ERROR: missing CONTENT_START"
                 break
 
             i += 1  # línea después de CONTENT_START
 
-            # esperar fence start ```...
             if i >= n:
                 yield rel_path, None, "ERROR: unexpected EOF after CONTENT_START"
                 break
 
             fence_line = lines[i].rstrip("\n")
             if not fence_line.startswith(FENCE_START_PREFIX):
-                # tolerancia: si no hay fence, intentar leer hasta CONTENT_END
+                # tolerancia: sin fence, leer hasta CONTENT_END
                 content_buf = []
                 while i < n and lines[i].rstrip("\n") != CONTENT_END:
                     content_buf.append(lines[i])
                     i += 1
                 content = "".join(content_buf)
             else:
-                # saltar fence start
+                # saltar fence start (```text o similar)
                 i += 1
                 content_buf = []
                 while i < n:
@@ -173,7 +167,7 @@ def parse_programa_txt(lines):
                     i += 1
                 content = "".join(content_buf)
 
-                # saltar fence end si estaba
+                # saltar fence end
                 if i < n and lines[i].rstrip("\n") == FENCE_END:
                     i += 1
 
@@ -185,8 +179,7 @@ def parse_programa_txt(lines):
             if i < n and lines[i].rstrip("\n") == CONTENT_END:
                 i += 1
 
-            # buscar END_FILE (no obligatorio estrictamente, pero recomendable)
-            # avanzamos hasta encontrar END_FILE o el siguiente BEGIN_FILE
+            # buscar END_FILE (tolerante)
             found_end = False
             while i < n:
                 l2 = lines[i].rstrip("\n")
@@ -195,7 +188,6 @@ def parse_programa_txt(lines):
                     i += 1
                     break
                 if l2.startswith(BEGIN_PREFIX):
-                    # siguiente bloque sin END_FILE: aceptamos igual
                     break
                 i += 1
 
@@ -209,6 +201,30 @@ def parse_programa_txt(lines):
         i += 1
 
 
+def normalize_rel_path(rel_path: str) -> str:
+    """
+    Normaliza rutas para que funcionen cross-platform:
+    - convierte "\" y "/" a "/"
+    - elimina prefijos ./ o .\
+    - colapsa dobles separadores
+    """
+    rel_path = (rel_path or "").strip()
+
+    if rel_path.startswith(".\\"):
+        rel_path = rel_path[2:]
+    if rel_path.startswith("./"):
+        rel_path = rel_path[2:]
+
+    # Normaliza separadores a "/"
+    rel_path = rel_path.replace("\\", "/")
+
+    # colapsar //
+    while "//" in rel_path:
+        rel_path = rel_path.replace("//", "/")
+
+    return rel_path
+
+
 def is_path_safe(rel_path: str) -> bool:
     """
     Evita path traversal: no permitir .. ni rutas absolutas.
@@ -217,8 +233,10 @@ def is_path_safe(rel_path: str) -> bool:
         p = Path(rel_path)
         if p.is_absolute():
             return False
-        parts = p.parts
-        if any(part == ".." for part in parts):
+        if any(part == ".." for part in p.parts):
+            return False
+        # Evitar rutas vacías o "." (sin archivo)
+        if rel_path.strip() in ("", ".", "./"):
             return False
         return True
     except Exception:
@@ -235,22 +253,25 @@ def apply_mode(existing: Path, new_text: str, mode: str) -> str | None:
         try:
             old = existing.read_text(encoding="utf-8")
         except Exception:
-            # si no puede leerse, mejor overwrite
             old = ""
         return old + new_text
-    # overwrite default
-    return new_text
+    return new_text  # overwrite
 
 
 def main():
     ap = argparse.ArgumentParser(description="Reconstruye repo desde PROGRAMA.txt")
-    ap.add_argument("--in", dest="inp", default="PROGRAMA.txt", help="Ruta a PROGRAMA.txt (default: PROGRAMA.txt)")
-    ap.add_argument("--out", dest="out", required=True, help="Carpeta de salida (raíz) donde reconstruir")
+    ap.add_argument("--in", dest="inp", default="PROGRAMA.txt",
+                    help="Ruta a PROGRAMA.txt (default: PROGRAMA.txt)")
+    ap.add_argument("--out", dest="out", required=True,
+                    help="Carpeta de salida (raíz) donde reconstruir")
     ap.add_argument("--mode", choices=["overwrite", "skip", "append"], default="overwrite",
                     help="Qué hacer si el archivo existe (default: overwrite)")
-    ap.add_argument("--dry-run", action="store_true", help="No escribe nada, solo muestra lo que haría")
-    ap.add_argument("--log", default="reconstruccion.log", help="Archivo de log (default: reconstruccion.log)")
-    ap.add_argument("--retries", type=int, default=3, help="Reintentos por archivo ante bloqueo/permisos (default: 3)")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="No escribe nada, solo muestra lo que haría")
+    ap.add_argument("--log", default="reconstruccion.log",
+                    help="Archivo de log (default: reconstruccion.log)")
+    ap.add_argument("--retries", type=int, default=3,
+                    help="Reintentos por archivo ante bloqueo/permisos (default: 3)")
     args = ap.parse_args()
 
     inp = Path(args.inp)
@@ -263,6 +284,7 @@ def main():
     safe_mkdir(out_root)
 
     log_path = out_root / args.log
+
     def log(msg: str):
         try:
             with open(log_path, "a", encoding="utf-8") as lf:
@@ -270,6 +292,7 @@ def main():
         except Exception:
             pass
 
+    # Leer manteniendo saltos de línea
     lines = inp.read_text(encoding="utf-8", errors="replace").splitlines(keepends=True)
 
     total = 0
@@ -277,7 +300,7 @@ def main():
     skipped = 0
     failed = 0
 
-    log(f"=== START reconstruccion ===")
+    log("=== START reconstruccion ===")
     log(f"INPUT: {inp.resolve()}")
     log(f"OUTPUT_ROOT: {out_root.resolve()}")
     log(f"MODE: {args.mode}  DRY_RUN: {args.dry_run}")
@@ -286,45 +309,42 @@ def main():
     for rel_path, content, note in parse_programa_txt(lines):
         total += 1
 
-        if not rel_path or not is_path_safe(rel_path):
+        rel_path_norm = normalize_rel_path(rel_path)
+
+        if not rel_path_norm or not is_path_safe(rel_path_norm):
             failed += 1
-            log(f"[FAIL] Unsafe or empty path: {rel_path!r}")
+            log(f"[FAIL] Unsafe or empty path: {rel_path!r} -> {rel_path_norm!r}")
             continue
 
         if content is None:
             failed += 1
-            log(f"[FAIL] Missing content for {rel_path} ({note})")
+            log(f"[FAIL] Missing content for {rel_path_norm} ({note})")
             continue
 
-        dst = out_root / rel_path
-
-        # Si el bloque trae warnings (p.ej missing END_FILE), lo logueamos
         if note:
-            log(f"[NOTE] {rel_path}: {note}")
+            log(f"[NOTE] {rel_path_norm}: {note}")
+
+        dst = out_root / Path(rel_path_norm)
 
         text_to_write = apply_mode(dst, content, args.mode)
         if text_to_write is None:
             skipped += 1
-            log(f"[SKIP] {rel_path} (exists, mode=skip)")
+            log(f"[SKIP] {rel_path_norm} (exists, mode=skip)")
             continue
 
         if args.dry_run:
             written += 1
-            log(f"[DRY] Would write: {rel_path} ({len(text_to_write)} chars)")
+            log(f"[DRY] Would write: {rel_path_norm} ({len(text_to_write)} chars)")
             continue
 
         try:
-            # asegurar dirs; si dst es "algo/" accidental, lo trataremos como archivo igualmente.
-            # (en tu formato, BEGIN_FILE siempre es archivo)
             atomic_write_text(dst, text_to_write, retries=args.retries)
             written += 1
-            log(f"[OK] Wrote: {rel_path} ({len(text_to_write)} chars)")
+            log(f"[OK] Wrote: {rel_path_norm} ({len(text_to_write)} chars)")
         except Exception as e:
             failed += 1
-            log(f"[FAIL] {rel_path}: {repr(e)}")
+            log(f"[FAIL] {rel_path_norm}: {repr(e)}")
             log(traceback.format_exc())
-
-            # seguir con el resto
             continue
 
     log("")
@@ -337,6 +357,7 @@ def main():
 
     print(f"OK. total={total}, escritos={written}, omitidos={skipped}, fallidos={failed}")
     print(f"Log: {log_path}")
+
 
 if __name__ == "__main__":
     main()
