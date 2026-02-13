@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
+r"""
 reconstruye_repo.py
 
 Reconstruye un árbol de archivos/carpetas a partir de un PROGRAMA.txt
@@ -202,7 +202,7 @@ def parse_programa_txt(lines):
 
 
 def normalize_rel_path(rel_path: str) -> str:
-    """
+    r"""
     Normaliza rutas para que funcionen cross-platform:
     - convierte "\" y "/" a "/"
     - elimina prefijos ./ o .\
