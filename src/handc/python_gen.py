@@ -147,47 +147,51 @@ def gen_python(ir: Dict[str, Any], *, module_name: str = "main") -> str:
         raise ValueError(f"Unknown expr kind: {k}")
 
     def emit_stmt(stmt: Dict[str, Any], indent: int) -> List[str]:
+        ref = (stmt.get('origin') or {}).get('ref') or ''
+        def OC(line: str) -> str:
+            return (line + ('  # ' + ref if ref else ''))
+
         pad = " " * indent
         k = stmt["kind"]
         out_lines: List[str] = []
         if k == "assign":
-            out_lines.append(pad + f"store.set({stmt['name']!r}, {emit_expr(stmt['value'])})")
+            out_lines.append(OC(pad + f"store.set({stmt['name']!r}, {emit_expr(stmt['value'])})"))
             return out_lines
         if k == "expr":
-            out_lines.append(pad + emit_expr(stmt["value"]))
+            out_lines.append(OC(pad + emit_expr(stmt["value"])))
             return out_lines
         if k == "show":
-            out_lines.append(pad + f"rt.show({emit_expr(stmt['value'])})")
+            out_lines.append(OC(pad + f"rt.show({emit_expr(stmt['value'])})"))
             return out_lines
         if k == "verify":
-            out_lines.append(pad + f"if not _truthy({emit_expr(stmt['value'])}):")
-            out_lines.append(pad + "    raise RuntimeError('HND-VERIFY-0001 VERIFY failed')")
+            out_lines.append(OC(pad + f"if not _truthy({emit_expr(stmt['value'])}):"))
+            out_lines.append(OC(pad + "    raise RuntimeError('HND-VERIFY-0001 VERIFY failed')"))
             return out_lines
         if k == "return":
             if stmt.get("value") is None:
-                out_lines.append(pad + "raise _ReturnSignal(None)")
+                out_lines.append(OC(pad + "raise _ReturnSignal(None)"))
             else:
-                out_lines.append(pad + f"raise _ReturnSignal({emit_expr(stmt['value'])})")
+                out_lines.append(OC(pad + f"raise _ReturnSignal({emit_expr(stmt['value'])})"))
             return out_lines
         if k == "if":
-            out_lines.append(pad + f"if _truthy({emit_expr(stmt['cond'])}):")
+            out_lines.append(OC(pad + f"if _truthy({emit_expr(stmt['cond'])}):"))
             then = stmt.get("then") or []
             if not then:
-                out_lines.append(pad + "    pass")
+                out_lines.append(OC(pad + "    pass"))
             else:
                 for st in then:
                     out_lines.extend(emit_stmt(st, indent + 4))
             els = stmt.get("else") or []
             if els:
-                out_lines.append(pad + "else:")
+                out_lines.append(OC(pad + "else:"))
                 for st in els:
                     out_lines.extend(emit_stmt(st, indent + 4))
             return out_lines
         if k == "while":
-            out_lines.append(pad + f"while _truthy({emit_expr(stmt['cond'])}):")
+            out_lines.append(OC(pad + f"while _truthy({emit_expr(stmt['cond'])}):"))
             body = stmt.get("body") or []
             if not body:
-                out_lines.append(pad + "    break")
+                out_lines.append(OC(pad + "    break"))
             else:
                 for st in body:
                     out_lines.extend(emit_stmt(st, indent + 4))
@@ -219,18 +223,18 @@ def gen_python(ir: Dict[str, Any], *, module_name: str = "main") -> str:
         emit("")
 
     emit("# --- Top-level ---")
-    emit("def __hand_main(inputs: List[str]) -> List[str]:")
+    emit("def __hand_main(inputs: List[str]) -> Dict[str, Any]:")
     emit("    store = Store(frames=[{}])")
     emit("    rt = Runtime(inputs=list(inputs), outputs=[])")
     for st in mod.get("toplevel", []) or []:
         for ln in emit_stmt(st, 4):
             emit(ln)
-    emit("    return rt.outputs")
+    emit("    return {\"outputs\": rt.outputs, \"store\": store.frames[0]}")
     emit("")
     emit("def __hand_run_and_print_json(inputs: List[str]) -> None:")
     emit("    import json")
     emit("    out = __hand_main(inputs)")
-    emit("    print(json.dumps({'outputs': out}, ensure_ascii=False))")
+    emit("    print(json.dumps(out, ensure_ascii=False))")
     emit("")
     emit("if __name__ == '__main__':")
     emit("    import json, sys")

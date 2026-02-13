@@ -32,6 +32,30 @@ from .html_gen import gen_html, HtmlGenError
 
 SCHEMA_VERSION = "0.1"
 
+from datetime import datetime, timezone
+
+def _utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+def _emit_trace_from_codegen(target: str, out_file: str, code: str, actor: str, prompt_hash: Optional[str]) -> List[Dict[str, Any]]:
+    events: List[Dict[str, Any]] = []
+    for i, line in enumerate(code.splitlines(), start=1):
+        ref = ""
+        if "  # " in line:
+            ref = line.split("  # ", 1)[1].strip()
+        events.append({
+            "kind": "compile.output_line",
+            "ts": _utc_now(),
+            "ref": ref,
+            "actor": actor,
+            "prompt_hash": prompt_hash,
+            "target": target,
+            "out_file": out_file,
+            "line_no": i,
+            "text": line,
+        })
+    return events
+
 def _json_default(obj: Any):
     if is_dataclass(obj):
         return asdict(obj)
@@ -101,8 +125,12 @@ def build(
     supervision_level: int,
     emit_ir: bool,
     emit_ast: bool,
+    emit_trace: bool,
+    origin_actor: str,
+    prompt_hash: Optional[str],
 ) -> Tuple[int, Dict[str, Any]]:
     out_dir.mkdir(parents=True, exist_ok=True)
+    trace_events: List[Dict[str, Any]] = []
 
     report: Dict[str, Any] = {
         "schema_version": SCHEMA_VERSION,
@@ -214,6 +242,8 @@ def build(
         if target == "python":
             code = gen_python(ir2, module_name=input_path.stem)
             out_file.write_text(code, encoding="utf-8")
+            if emit_trace:
+                trace_events.extend(_emit_trace_from_codegen(target, str(out_file), code, origin_actor, prompt_hash))
         elif target == "wasm":
             wat, notes = gen_wat(ir2)
             report["degradations"].extend([_note_to_dict(n) for n in notes])
@@ -238,6 +268,8 @@ def build(
 
     report["artifacts"]["outputs"].append(str(out_file))
     report["status"] = "ok"
+    if emit_trace:
+        report['trace_events'] = trace_events
     return 0, report
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -248,6 +280,9 @@ def main(argv: Optional[List[str]] = None) -> int:
     ap.add_argument("--level", type=int, default=2, choices=[1,2,3,4], help="supervision level 1-4")
     ap.add_argument("--emit-ir", action="store_true")
     ap.add_argument("--emit-ast", action="store_true")
+    ap.add_argument("--emit-trace", action="store_true", help="emit compiler audit trace (trace.json)")
+    ap.add_argument("--origin-actor", default="👤", choices=["👤","🤖","⭐"], help="actor for this build")
+    ap.add_argument("--prompt-hash", default=None, help="hash of the AI prompt (if build was AI-assisted)")
     ap.add_argument("--json-diagnostics", action="store_true", help="print diagnostics JSON to stdout")
 
     args = ap.parse_args(argv)
@@ -260,6 +295,9 @@ def main(argv: Optional[List[str]] = None) -> int:
             supervision_level=args.level,
             emit_ir=args.emit_ir,
             emit_ast=args.emit_ast,
+            emit_trace=args.emit_trace,
+            origin_actor=args.origin_actor,
+            prompt_hash=args.prompt_hash,
         )
     except Exception as e:  # last-resort: never lose a report
         Path(args.out).mkdir(parents=True, exist_ok=True)
@@ -289,6 +327,15 @@ def main(argv: Optional[List[str]] = None) -> int:
     # write report
     rep_path = Path(args.out) / "build_report.json"
     _write_json(rep_path, report)
+    if args.emit_trace:
+        trace_path = Path(args.out) / "trace.json"
+        _write_json(trace_path, {
+            "schema_version": "0.1",
+            "build_id": report.get("build_id"),
+            "source_file": str(args.input),
+            "origin_context": {"actor": args.origin_actor, "prompt_hash": args.prompt_hash, "hand_version": "0.1.0"},
+            "events": report.get("trace_events", []),
+        })
 
     if args.json_diagnostics:
         print(

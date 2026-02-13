@@ -21,6 +21,7 @@ class TraceEvent:
 @dataclass
 class RunResult:
     outputs: List[str]
+    final_store: Dict[str, Any]
     trace: List[TraceEvent]
     trace_path: str
 
@@ -373,12 +374,28 @@ class Interpreter:
             raise
         return self._finalize()
 
+    
+    def store_snapshot(self) -> Dict[str, Any]:
+        # Σ: final observable store for equivalence oracle (top-level frame only)
+        # Note: frames[-1] is the current scope; frames[0] is global.
+        try:
+            if isinstance(self.store, dict):
+                # legacy
+                return dict(self.store)
+            frames = getattr(self.store, "frames", None)
+            if isinstance(frames, list) and frames:
+                # expose global frame
+                return dict(frames[0])
+        except Exception:
+            pass
+        return {}
+
     def _finalize(self) -> RunResult:
         # write trace to a deterministic json file next to cwd (caller can override by copying)
         trace_path=str(pathlib.Path("trace.json").absolute())
         with open(trace_path, "w", encoding="utf-8") as f:
             json.dump([asdict(ev) for ev in self.trace], f, ensure_ascii=False, indent=2)
-        return RunResult(outputs=self.outputs, trace=self.trace, trace_path=trace_path)
+        return RunResult(outputs=self.outputs, final_store=self.store_snapshot(), trace=self.trace, trace_path=trace_path)
 
 # -------------------------
 # Public convenience API
