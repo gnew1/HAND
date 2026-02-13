@@ -1,0 +1,21 @@
+{
+  "kind": "module",
+  "loc": {
+    "line": 0,
+    "raw": "<module>"
+  },
+  "value": null,
+  "children": [
+    {
+      "kind": "show",
+      "loc": {
+        "line": 1,
+        "raw": "show \"hola\""
+      },
+      "value": {
+        "expr": "\"hola\""
+      },
+      "children": []
+    }
+  ]
+}

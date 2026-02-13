@@ -1,0 +1,3 @@
+program "prueba.hand":
+    show "Contenido integrado:"
+    show "show \"hola\""

@@ -21,6 +21,36 @@ body {
   transition: transform 120ms ease-in-out;
 }
 
+.quick-card {
+  border: 1px solid #ffe9b3;
+}
+
+.emoji-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  max-height: 9.5rem;
+  overflow: auto;
+  padding: 0.25rem;
+  border: 1px solid #e9ecef;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.emoji-palette .btn {
+  min-width: 2.2rem;
+  padding: 0.2rem 0.45rem;
+}
+
+.workspace-table-wrap {
+  max-height: 20rem;
+  overflow: auto;
+}
+
+.table td, .table th {
+  vertical-align: middle;
+}
+
 pre {
   background: #111827;
   color: #e5e7eb;

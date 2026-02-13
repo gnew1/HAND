@@ -15,6 +15,113 @@
       <p class="text-secondary mb-0">Gestión unificada de proyectos en SALIDA, compilación HAND y traducción de archivos.</p>
     </header>
 
+    <section class="card shadow-sm mb-4 border-warning-subtle">
+      <div class="card-body">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <h2 class="h5 mb-0"><i class="bi bi-lightning-charge-fill me-2"></i>Inicio rápido: comandos, emojis y tips</h2>
+          <button type="button" class="btn btn-outline-secondary btn-sm js-show-help"
+            data-title="Tips para empezar"
+            data-help="1) Empieza en 'Compilar HAND rápido'. 2) Usa 'Workspace HAND' para crear archivos y convertir documentos. 3) Ejecuta 'Integrar proyecto' al final para unir el flujo. 4) Usa los botones con ayuda para ver qué hace cada acción antes de correrla."
+            data-command="Tips interactivos para uso inicial.">
+            <i class="bi bi-stars me-1"></i>Tips
+          </button>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-xl-6">
+            <div class="card h-100 quick-card">
+              <div class="card-body">
+                <h3 class="h6 mb-2">Menú de comandos comunes</h3>
+                <p class="small text-secondary mb-2">Ejecuta tareas frecuentes con confirmación y ayuda emergente.</p>
+                <form method="post" action="/run-common-command" id="common-command-form" class="row g-2">
+                  <div class="col-12">
+                    <select name="common_action_key" id="common_action_key" class="form-select">
+                      {% for action in common_commands %}
+                        <option
+                          value="{{ action.key }}"
+                          data-label="{{ action.label }}"
+                          data-help="{{ action.description }}"
+                          data-command="{{ action.command | join(' ') }}"
+                        >{{ action.label }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                  <div class="col-12 d-flex gap-2">
+                    <button type="button" class="btn btn-warning btn-sm" id="run-common-command-btn">
+                      <i class="bi bi-terminal me-1"></i>Ejecutar comando
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm js-show-help"
+                      data-title="Cómo usar comandos comunes"
+                      data-help="Selecciona una tarea del menú y pulsa ejecutar. Antes de correr, verás un emergente con tips y comando exacto."
+                      data-command="Seleccionar → revisar tips → ejecutar.">
+                      <i class="bi bi-question-circle me-1"></i>Ayuda
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-6">
+            <div class="card h-100 quick-card">
+              <div class="card-body">
+                <h3 class="h6 mb-2">Menús para introducir comandos y emojis</h3>
+                <p class="small text-secondary mb-2">Inserta snippets de comandos y emojis directamente en el editor activo.</p>
+
+                <div class="row g-2 mb-2">
+                  <div class="col-md-8">
+                    <select id="snippet_select" class="form-select form-select-sm">
+                      <option value="show &quot;Hola HAND&quot;">show &quot;Hola HAND&quot;</option>
+                      <option value="ask nombre\nshow &quot;Hola &quot; + nombre">ask nombre + saludo</option>
+                      <option value="if true:\n    show &quot;ok&quot;">if básico</option>
+                      <option value="while contador &lt; 3:\n    show contador">while básico</option>
+                      <option value="fn sumar(a:int, b:int) -&gt; int:\n    return a + b">función con retorno</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 d-grid">
+                    <button type="button" class="btn btn-outline-primary btn-sm" id="insert-snippet-btn">
+                      <i class="bi bi-braces me-1"></i>Insertar snippet
+                    </button>
+                  </div>
+                </div>
+
+                <div class="mb-2">
+                  <input type="text" class="form-control form-control-sm" id="emoji-search" placeholder="Buscar emoji (ej: idea, check, fuego)">
+                </div>
+                <div id="emoji-palette" class="emoji-palette">
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="😀" data-tags="cara feliz smile">😀</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="😎" data-tags="cool programador">😎</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🤖" data-tags="bot codigo ia">🤖</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🧠" data-tags="idea mente logica">🧠</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🔥" data-tags="fuego pro progreso">🔥</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="✅" data-tags="check ok hecho">✅</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="❌" data-tags="error fail">❌</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="⚠️" data-tags="alerta warning">⚠️</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="💡" data-tags="idea tip">💡</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="📌" data-tags="pin nota">📌</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🧩" data-tags="pieza modulo">🧩</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🚀" data-tags="launch run deploy">🚀</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="📦" data-tags="paquete build">📦</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🛠️" data-tags="tools herramientas">🛠️</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="⚙️" data-tags="configuracion">⚙️</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🧪" data-tags="test pruebas">🧪</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="📊" data-tags="datos reporte">📊</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="📚" data-tags="docs aprender">📚</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="✍️" data-tags="escribir editor">✍️</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🔍" data-tags="buscar debug">🔍</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🐍" data-tags="python">🐍</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🌐" data-tags="web html">🌐</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🗃️" data-tags="archivos">🗃️</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🎯" data-tags="objetivo meta">🎯</button>
+                  <button type="button" class="btn btn-light btn-sm js-insert-emoji" data-emoji="🙌" data-tags="bien hecho">🙌</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="card shadow-sm mb-4">
       <div class="card-body">
         <div class="d-flex align-items-center justify-content-between mb-2">
@@ -66,6 +173,284 @@
           <input type="hidden" name="default_translate_in" value="{{ default_translate_in }}">
           <input type="hidden" name="default_translate_out" value="{{ default_translate_out }}">
         </form>
+      </div>
+    </section>
+
+    <section class="card shadow-sm mb-4 border-primary-subtle">
+      <div class="card-body">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <h2 class="h5 mb-0"><i class="bi bi-hdd-stack-fill me-2"></i>Workspace HAND (carpetas y archivos)</h2>
+          <span class="badge text-bg-info">Gestión</span>
+        </div>
+        <p class="small text-secondary">Zona para mantener archivos, subir documentos, convertirlos a HAND y ejecutar programas HAND.</p>
+
+        <div class="row g-3 mb-3">
+          <div class="col-12 col-xl-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h6">Crear carpeta</h3>
+                <form method="post" action="/workspace/create-folder" id="workspace-create-folder-form" class="row g-2">
+                  <div class="col-12">
+                    <input name="folder_rel" class="form-control" placeholder="ejemplo: hand_zone/proyecto_a">
+                  </div>
+                  <div class="col-12">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-sm js-help-submit"
+                      data-title="Crear carpeta"
+                      data-help="Crea una carpeta dentro del workspace gestionado."
+                      data-command="mkdir -p <ruta_relativa_workspace>"
+                      data-form-id="workspace-create-folder-form"
+                    >
+                      <i class="bi bi-folder-plus me-1"></i>Crear carpeta
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h6">Crear archivo</h3>
+                <form method="post" action="/workspace/create-file" id="workspace-create-file-form" class="row g-2">
+                  <div class="col-12">
+                    <input name="file_rel" class="form-control" placeholder="ejemplo: hand_zone/demo.hand">
+                  </div>
+                  <div class="col-12">
+                    <textarea name="file_content" class="form-control editor" rows="4" placeholder="show &quot;hola desde HAND&quot;"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-sm js-help-submit"
+                      data-title="Crear archivo"
+                      data-help="Crea un archivo en la ruta indicada y guarda el contenido inicial."
+                      data-command="write <ruta_relativa_workspace>"
+                      data-form-id="workspace-create-file-form"
+                    >
+                      <i class="bi bi-file-earmark-plus me-1"></i>Crear archivo
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-12 col-xl-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h6">Subir documentos para integrar</h3>
+                <form method="post" action="/workspace/upload" enctype="multipart/form-data" id="workspace-upload-form" class="row g-2">
+                  <div class="col-12">
+                    <input type="file" name="documents" class="form-control" multiple>
+                  </div>
+                  <div class="col-12 d-flex gap-2">
+                    <button
+                      type="button"
+                      class="btn btn-outline-success btn-sm js-help-submit"
+                      data-title="Subir documentos"
+                      data-help="Sube uno o varios documentos al workspace (carpeta uploads) para integrarlos en el flujo HAND."
+                      data-command="upload files -> workspace/uploads"
+                      data-form-id="workspace-upload-form"
+                    >
+                      <i class="bi bi-upload me-1"></i>Subir documentos
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-xl-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h6">Traducir documentos subidos a HAND</h3>
+                <form method="post" action="/workspace/translate-uploaded" id="workspace-translate-uploaded-form" class="row g-2">
+                  <div class="col-md-6">
+                    <select name="mode" class="form-select">
+                      <option value="raw">raw (recomendado para docs)</option>
+                      <option value="safe">safe</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <button
+                      type="button"
+                      class="btn btn-outline-success btn-sm w-100 js-help-submit"
+                      data-title="Traducir documentos subidos"
+                      data-help="Procesa la carpeta uploads y genera salida traducida en SALIDA/.web_manager/translated."
+                      data-command="python -m hand_tree_translator.cli --in uploads --out translated --mode raw|safe --force"
+                      data-form-id="workspace-translate-uploaded-form"
+                    >
+                      <i class="bi bi-arrow-repeat me-1"></i>Traducir subidos
+                    </button>
+                  </div>
+                </form>
+
+                <form method="post" action="/workspace/convert-to-hand" id="workspace-convert-hand-form" class="row g-2 mt-2">
+                  <div class="col-12">
+                    <input name="source_rel" class="form-control" placeholder="origen en workspace, ej: uploads/mi_doc.txt">
+                  </div>
+                  <div class="col-12">
+                    <input name="output_rel" class="form-control" value="hand_zone/imported.hand" placeholder="destino .hand en workspace">
+                  </div>
+                  <div class="col-12">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-sm js-help-submit"
+                      data-title="Convertir documento a HAND"
+                      data-help="Convierte un documento textual del workspace a una versión HAND ejecutable en hand_zone."
+                      data-command="convert <source> -> <output>.hand"
+                      data-form-id="workspace-convert-hand-form"
+                    >
+                      <i class="bi bi-filetype-htm me-1"></i>Convertir a HAND
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="h6">Explorador de workspace</h3>
+                <div class="table-responsive workspace-table-wrap">
+                  <table class="table table-sm align-middle">
+                    <thead>
+                      <tr>
+                        <th>Tipo</th>
+                        <th>Ruta</th>
+                        <th>Tamaño</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for entry in workspace_entries %}
+                        <tr>
+                          <td>
+                            {% if entry.type == 'dir' %}
+                              <span class="badge text-bg-light border"><i class="bi bi-folder-fill me-1"></i>Dir</span>
+                            {% else %}
+                              <span class="badge text-bg-light border"><i class="bi bi-file-earmark me-1"></i>File</span>
+                            {% endif %}
+                          </td>
+                          <td class="small">{{ entry.rel }}</td>
+                          <td class="small">{{ entry.size }}</td>
+                          <td>
+                            <div class="d-flex gap-1 flex-wrap">
+                              {% if entry.type == 'file' %}
+                                <form method="post" action="/workspace/open-file" class="d-inline" id="open-{{ loop.index }}">
+                                  <input type="hidden" name="selected_file_rel" value="{{ entry.rel }}">
+                                  <button type="button" class="btn btn-outline-primary btn-sm js-help-submit"
+                                    data-title="Abrir archivo"
+                                    data-help="Carga este archivo en el editor de la zona HAND."
+                                    data-command="open {{ entry.rel }}"
+                                    data-form-id="open-{{ loop.index }}">Abrir</button>
+                                </form>
+                              {% endif %}
+                              <form method="post" action="/workspace/delete" class="d-inline" id="del-{{ loop.index }}">
+                                <input type="hidden" name="path_rel" value="{{ entry.rel }}">
+                                <button type="button" class="btn btn-outline-danger btn-sm js-help-submit"
+                                  data-title="Eliminar"
+                                  data-help="Elimina esta ruta del workspace (archivo o carpeta)."
+                                  data-command="delete {{ entry.rel }}"
+                                  data-form-id="del-{{ loop.index }}">Eliminar</button>
+                              </form>
+                            </div>
+                          </td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="h6">Editor de archivo (zona HAND)</h3>
+                <form method="post" action="/workspace/save-file" id="workspace-save-file-form" class="row g-2">
+                  <div class="col-md-8">
+                    <input name="selected_file_rel" class="form-control" value="{{ selected_file_rel }}" placeholder="ruta del archivo en workspace">
+                  </div>
+                  <div class="col-md-4 d-grid">
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-sm js-help-submit"
+                      data-title="Guardar archivo"
+                      data-help="Guarda el contenido actual del editor sobre el archivo seleccionado en workspace."
+                      data-command="save <selected_file_rel>"
+                      data-form-id="workspace-save-file-form"
+                    >
+                      <i class="bi bi-floppy me-1"></i>Guardar archivo
+                    </button>
+                  </div>
+                  <div class="col-12">
+                    <textarea name="selected_file_content" class="form-control editor" rows="10" placeholder="Contenido del archivo...">{{ selected_file_content }}</textarea>
+                  </div>
+                </form>
+
+                <form method="post" action="/workspace/run-hand" id="workspace-run-hand-form" class="row g-2 mt-2">
+                  <div class="col-md-6">
+                    <input name="hand_rel" class="form-control" value="{{ selected_file_rel }}" placeholder="archivo .hand en workspace">
+                  </div>
+                  <div class="col-md-3">
+                    <select name="target" class="form-select">
+                      <option value="python">python</option>
+                      <option value="html">html</option>
+                      <option value="sql">sql</option>
+                      <option value="rust">rust</option>
+                      <option value="wasm">wasm</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3 d-flex align-items-center">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="run_python_workspace" name="run_python" checked>
+                      <label class="form-check-label" for="run_python_workspace">Ejecutar Python</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button
+                      type="button"
+                      class="btn btn-success btn-sm js-help-submit"
+                      data-title="Compilar y ejecutar HAND"
+                      data-help="Compila el archivo .hand seleccionado con handc.py y, si target=python, ejecuta también el programa resultante."
+                      data-command="python handc.py <archivo.hand> --target <target> --out SALIDA/.web_manager/runs/... --emit-ir ..."
+                      data-form-id="workspace-run-hand-form"
+                    >
+                      <i class="bi bi-cpu me-1"></i>Compilar/Ejecutar HAND
+                    </button>
+                  </div>
+                </form>
+
+                <form method="post" action="/workspace/integrate-project" id="workspace-integrate-form" class="row g-2 mt-2">
+                  <div class="col-12">
+                    <button
+                      type="button"
+                      class="btn btn-warning btn-sm js-help-submit"
+                      data-title="Integración final del proyecto"
+                      data-help="Genera un archivo HAND integrado con lo que tengas en workspace (hand_zone y uploads), luego compila y ejecuta en python para validar el flujo completo."
+                      data-command="integrar -> compilar python -> ejecutar"
+                      data-form-id="workspace-integrate-form"
+                    >
+                      <i class="bi bi-diagram-2-fill me-1"></i>Integrar proyecto (final)
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -227,6 +612,44 @@
         </div>
       </section>
     {% endif %}
+
+    {% if workspace_result %}
+      <section class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h2 class="h5">Resultado Workspace: {{ workspace_result.title }}</h2>
+          <p class="small text-secondary mb-2">{{ workspace_result.command }}<br>{{ workspace_result.cwd }} · {{ workspace_result.duration }}s · rc={{ workspace_result.returncode }}</p>
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <h3 class="h6">stdout</h3>
+              <pre>{{ workspace_result.stdout }}</pre>
+            </div>
+            <div class="col-12 col-lg-6">
+              <h3 class="h6">stderr</h3>
+              <pre>{{ workspace_result.stderr }}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if hand_exec_result %}
+      <section class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h2 class="h5">Resultado HAND: {{ hand_exec_result.title }}</h2>
+          <p class="small text-secondary mb-2">{{ hand_exec_result.command }}<br>{{ hand_exec_result.cwd }} · {{ hand_exec_result.duration }}s · rc={{ hand_exec_result.returncode }}</p>
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <h3 class="h6">stdout</h3>
+              <pre>{{ hand_exec_result.stdout }}</pre>
+            </div>
+            <div class="col-12 col-lg-6">
+              <h3 class="h6">stderr</h3>
+              <pre>{{ hand_exec_result.stderr }}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
   </main>
 
   <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
@@ -251,6 +674,30 @@
     </div>
   </div>
 
+  <div class="modal fade" id="onboardingModal" tabindex="-1" aria-labelledby="onboardingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title fs-5" id="onboardingModalLabel">Guía rápida para empezar</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="mb-0">
+            <li>Usa <strong>Inicio rápido</strong> para lanzar comandos comunes y aprender opciones.</li>
+            <li>En <strong>Compilar HAND rápido</strong>, prueba snippets y cambia target (python/html/sql/rust/wasm).</li>
+            <li>En <strong>Workspace HAND</strong>, crea archivos, sube documentos y conviértelos a formato HAND.</li>
+            <li>Pulsa <strong>Integrar proyecto (final)</strong> cuando quieras validar todo el flujo en una sola acción.</li>
+            <li>Cada botón principal abre un emergente con tips antes de ejecutar.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="onboardingUnderstood">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     (function () {
@@ -260,6 +707,11 @@
       const cmdEl = document.getElementById('helpModalCommand');
       const execBtn = document.getElementById('helpModalExecute');
       const modal = new bootstrap.Modal(modalEl);
+      const onboardingEl = document.getElementById('onboardingModal');
+      const onboardingModal = new bootstrap.Modal(onboardingEl);
+      const onboardingBtn = document.getElementById('onboardingUnderstood');
+
+      let activeEditor = null;
 
       function openHelp(title, help, command, formId) {
         titleEl.textContent = title || 'Ayuda';
@@ -302,6 +754,86 @@
             null
           );
         });
+      });
+
+      document.querySelectorAll('textarea.editor').forEach((area) => {
+        area.addEventListener('focus', function () {
+          activeEditor = this;
+        });
+      });
+
+      function insertAtCursor(textarea, text) {
+        if (!textarea) {
+          return;
+        }
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const value = textarea.value;
+        textarea.value = value.substring(0, start) + text + value.substring(end);
+        const pos = start + text.length;
+        textarea.selectionStart = pos;
+        textarea.selectionEnd = pos;
+        textarea.focus();
+      }
+
+      const snippetSelect = document.getElementById('snippet_select');
+      const snippetBtn = document.getElementById('insert-snippet-btn');
+      if (snippetBtn && snippetSelect) {
+        snippetBtn.addEventListener('click', function () {
+          const text = snippetSelect.value || '';
+          const editor = activeEditor || document.querySelector('textarea.editor');
+          insertAtCursor(editor, text);
+        });
+      }
+
+      document.querySelectorAll('.js-insert-emoji').forEach((btn) => {
+        btn.addEventListener('click', function () {
+          const emoji = this.dataset.emoji || '';
+          const editor = activeEditor || document.querySelector('textarea.editor');
+          insertAtCursor(editor, emoji);
+        });
+      });
+
+      const emojiSearch = document.getElementById('emoji-search');
+      if (emojiSearch) {
+        emojiSearch.addEventListener('input', function () {
+          const query = (this.value || '').toLowerCase().trim();
+          document.querySelectorAll('.js-insert-emoji').forEach((btn) => {
+            const emoji = (btn.dataset.emoji || '').toLowerCase();
+            const tags = (btn.dataset.tags || '').toLowerCase();
+            const visible = !query || emoji.includes(query) || tags.includes(query);
+            btn.classList.toggle('d-none', !visible);
+          });
+        });
+      }
+
+      const commonSelect = document.getElementById('common_action_key');
+      const commonRunBtn = document.getElementById('run-common-command-btn');
+      if (commonSelect && commonRunBtn) {
+        commonRunBtn.addEventListener('click', function () {
+          const selected = commonSelect.options[commonSelect.selectedIndex];
+          if (!selected) {
+            return;
+          }
+          const title = selected.dataset.label || selected.textContent || 'Comando común';
+          const help = selected.dataset.help || 'Ejecuta el comando seleccionado.';
+          const command = selected.dataset.command || '';
+          openHelp(`Comando común · ${title}`, help, command, 'common-command-form');
+        });
+      }
+
+      const onboardingSeenKey = 'hand_control_center_onboarding_seen_v1';
+      if (!localStorage.getItem(onboardingSeenKey)) {
+        onboardingModal.show();
+      }
+      if (onboardingBtn) {
+        onboardingBtn.addEventListener('click', function () {
+          localStorage.setItem(onboardingSeenKey, '1');
+          onboardingModal.hide();
+        });
+      }
+      onboardingEl.addEventListener('hidden.bs.modal', function () {
+        localStorage.setItem(onboardingSeenKey, '1');
       });
     })();
   </script>
