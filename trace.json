@@ -3,55 +3,84 @@
     "step": 1,
     "kind": "enter_stmt",
     "detail": {
-      "stmt": "ShowStmt"
+      "stmt": "AssignStmt"
     }
   },
   {
     "step": 2,
     "kind": "eval_expr",
     "detail": {
-      "expr": "Call"
+      "expr": "Literal"
     }
   },
   {
     "step": 3,
-    "kind": "call",
+    "kind": "assign",
     "detail": {
-      "fn": "h",
-      "args": []
+      "name": "x",
+      "value": "1"
     }
   },
   {
     "step": 4,
-    "kind": "enter_stmt",
+    "kind": "exit_stmt",
     "detail": {
-      "stmt": "ReturnStmt"
+      "stmt": "AssignStmt"
     }
   },
   {
     "step": 5,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 6,
     "kind": "eval_expr",
     "detail": {
       "expr": "Literal"
     }
   },
   {
-    "step": 6,
-    "kind": "return",
-    "detail": {
-      "value": "z"
-    }
-  },
-  {
     "step": 7,
-    "kind": "io",
+    "kind": "assign",
     "detail": {
-      "op": "show",
-      "value": "z"
+      "name": "x",
+      "value": "2.5"
     }
   },
   {
     "step": 8,
+    "kind": "exit_stmt",
+    "detail": {
+      "stmt": "AssignStmt"
+    }
+  },
+  {
+    "step": 9,
+    "kind": "enter_stmt",
+    "detail": {
+      "stmt": "ShowStmt"
+    }
+  },
+  {
+    "step": 10,
+    "kind": "eval_expr",
+    "detail": {
+      "expr": "Var"
+    }
+  },
+  {
+    "step": 11,
+    "kind": "io",
+    "detail": {
+      "op": "show",
+      "value": "2.5"
+    }
+  },
+  {
+    "step": 12,
     "kind": "exit_stmt",
     "detail": {
       "stmt": "ShowStmt"
