@@ -1,22 +1,25 @@
-# HAND-IR v0.1 (stable) + lowering + origin tracing
+# HAND Conformance Suite (v0.1)
 
-This package defines a strict JSON Schema for HAND-IR v0.1, a lowering pass from HAND AST -> IR,
-and validation tests (CI-style) that ensure produced IR conforms to the schema.
+This directory is the **official** conformance suite for HAND Core v0.1.
 
-## Run validation tests
-```bash
-python -m pytest -q
-```
+## Layout
 
-## Generate IR from HAND source (example)
-```python
-from handc.interpreter import run_source
-from handc.lexer import lex
-from handc.parser import parse
-from handc.lowering import lower_program
+- `manifest.json`: list of all cases + declared features
+- `cases/<NN_name>/program.hand`
+- expected snapshots:
+  - `expected.tokens.json`
+  - `expected.ast.json` (if parses)
+  - `expected.type_diags.json`
+  - `expected.ir.json` (if typechecks)
+  - `expected.trace.json` (if typechecks)
+  - `expected.python_run.json` (if typechecks)
 
-src = 'x: Int = 1\nshow x\n'
-toks, diags = lex(src)
-pres = parse(toks)
-ir = lower_program(pres.program, module_name="main")
-```
+## Runner
+
+The pytest suite calls `conformance.runner.run_all()` which runs:
+
+lexer → parser → typechecker → lowering → interpreter → python codegen (equivalence)
+
+## Coverage
+
+`semantic_coverage_report()` aggregates features declared in `manifest.json`.

@@ -1,0 +1,22 @@
+{
+  "show": 29,
+  "op:+": 12,
+  "type:Int": 15,
+  "op:*": 3,
+  "op:-": 2,
+  "op:<": 7,
+  "op:>": 3,
+  "op:>=": 2,
+  "else": 6,
+  "if": 6,
+  "while": 6,
+  "op:==": 5,
+  "type:Float": 3,
+  "verify": 2,
+  "op:<=": 2,
+  "type:Text": 1,
+  "op:!=": 2,
+  "op:/": 1,
+  "type:Bool": 2,
+  "type:Null": 1
+}
